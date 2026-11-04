@@ -1,0 +1,16 @@
+﻿using System;
+using System.Web.UI;
+
+namespace DineFlow.Visitor
+{
+    public partial class Blog : System.Web.UI.Page
+    {
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            if (!IsPostBack)
+            {
+                // Page initialization logic for Blog page
+            }
+        }
+    }
+}

@@ -1,0 +1,456 @@
+﻿/* ==========================================================================
+   DINEFLOW LUXURY GALLERY PAGE STYLESHEET
+   Design Language: Obsidian Canvas, Metallic Gold Accents, Glassmorphism
+   Location: Rajkot, Gujarat
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Shared Page Utilities & Base Layouts
+   -------------------------------------------------------------------------- */
+.bg-dark-surface {
+    background-color: var(--df-surface-light);
+}
+
+.bg-dark-canvas {
+    background-color: var(--df-surface-cream);
+}
+
+.section-padding {
+    padding: 85px 0;
+}
+
+.sub-title {
+    color: var(--df-primary);
+    font-size: 0.85rem;
+    letter-spacing: 3px;
+    font-weight: 600;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.section-title {
+    font-size: 2.3rem;
+    font-weight: 700;
+    color: var(--df-text-main);
+}
+
+.title-divider {
+    width: 60px;
+    height: 2px;
+    background: var(--df-primary);
+    margin-top: 15px;
+}
+
+.text-gold {
+    color: var(--df-primary) !important;
+}
+
+.text-main {
+    color: var(--df-text-main) !important;
+}
+
+.border-gold-subtle {
+    border: 1px solid var(--df-border-gold);
+}
+
+.border-subtle {
+    border: 1px solid var(--df-border-subtle);
+}
+
+.border-bottom-subtle {
+    border-bottom: 1px solid var(--df-border-subtle);
+}
+
+.fs-7 {
+    font-size: 0.82rem !important;
+}
+
+.badge-gold {
+    display: inline-block;
+    background: rgba(212, 175, 55, 0.15);
+    color: var(--df-primary);
+    border: 1px solid var(--df-border-gold);
+    padding: 6px 14px;
+    border-radius: 30px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.btn-df-outline {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 28px;
+    background: transparent;
+    color: var(--df-text-main) !important;
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    border-radius: 50px;
+    border: 1px solid var(--df-border-gold);
+    transition: all var(--df-transition-fast);
+    cursor: pointer;
+}
+
+    .btn-df-outline:hover {
+        background: rgba(212, 175, 55, 0.1);
+        border-color: var(--df-primary);
+        color: var(--df-primary) !important;
+        transform: translateY(-3px);
+    }
+
+/* --------------------------------------------------------------------------
+   2. Luxury Hero Banner
+   -------------------------------------------------------------------------- */
+.gallery-hero-section {
+    position: relative;
+    min-height: 50vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    margin-top: -100px;
+    background: rgba(255, 255, 255, 0.82);
+    padding-bottom: 60px;
+}
+
+.gallery-hero-bg {
+    position: absolute;
+    inset: 0;
+    border: 1px solid rgba(212, 175, 55, 0.28);
+    box-shadow: 0 10px 20px rgba(17, 17, 17, 0.05);
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    z-index: 1;
+    filter: brightness(0.4) contrast(1.15);
+        background: #FFFFFF;
+}
+
+        transform: translateY(-2px);
+        box-shadow: 0 14px 24px rgba(17, 17, 17, 0.08);
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(13, 13, 13, 0.8) 0%, rgba(13, 13, 13, 0.5) 50%, rgba(13, 13, 13, 0.95) 100%);
+    z-index: 2;
+}
+
+.gallery-hero-container {
+    position: relative;
+    z-index: 3;
+}
+
+.hero-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 6px 16px;
+    border-radius: 30px;
+    background: rgba(212, 175, 55, 0.15);
+    border: 1px solid var(--df-border-gold);
+    color: var(--df-primary);
+    font-size: 0.78rem;
+    letter-spacing: 2px;
+    font-weight: 600;
+    margin-bottom: 18px;
+    backdrop-filter: blur(10px);
+}
+
+.hero-title {
+    font-size: 3.2rem;
+    font-weight: 700;
+    line-height: 1.15;
+    color: #FFFFFF;
+    margin-bottom: 15px;
+    text-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.hero-description {
+    font-size: 1.05rem;
+    color: rgba(245, 245, 245, 0.85);
+    max-width: 720px;
+    font-weight: 300;
+    line-height: 1.65;
+}
+
+/* --------------------------------------------------------------------------
+   3. Sticky Filter Bar
+   -------------------------------------------------------------------------- */
+.sticky-filter-bar {
+    position: sticky;
+    top: 65px;
+    z-index: 999;
+    border-top: 1px solid var(--df-border-subtle);
+    border-bottom: 1px solid var(--df-border-gold);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    background-color: rgba(13, 13, 13, 0.95);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+}
+
+.gallery-filter-btn {
+    background: transparent;
+    color: var(--df-text-muted);
+    border: 1px solid transparent;
+    padding: 8px 20px;
+    border-radius: 30px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    display: inline-flex;
+    align-items: center;
+}
+
+    .gallery-filter-btn:hover,
+    .gallery-filter-btn.active {
+        color: #000 !important;
+        background: linear-gradient(135deg, var(--df-primary), var(--df-primary-accent));
+        border-color: var(--df-primary);
+        font-weight: 600;
+        box-shadow: 0 4px 15px rgba(212, 175, 55, 0.25);
+    }
+
+/* --------------------------------------------------------------------------
+   4. Interior Masonry Gallery Cards
+   -------------------------------------------------------------------------- */
+.gallery-card {
+    transition: transform var(--df-transition-smooth), box-shadow var(--df-transition-smooth);
+}
+
+.masonry-tall {
+    height: 480px;
+}
+
+.masonry-short {
+    height: 228px;
+}
+
+.gallery-card img {
+    transition: transform var(--df-transition-smooth);
+}
+
+.gallery-card:hover img {
+    transform: scale(1.08);
+}
+
+.gallery-hover-content {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(13, 13, 13, 0) 20%, rgba(13, 13, 13, 0.9) 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 24px;
+    opacity: 0.9;
+    transition: opacity var(--df-transition-fast);
+}
+
+.gallery-card:hover .gallery-hover-content {
+    opacity: 1;
+}
+
+.gallery-tag {
+    color: var(--df-primary);
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-weight: 600;
+}
+
+.gallery-img-title {
+    color: var(--df-text-main);
+    font-size: 1.25rem;
+    margin: 4px 0;
+}
+
+.gallery-img-sub {
+    color: var(--df-text-muted);
+    font-size: 0.82rem;
+    margin-bottom: 0;
+}
+
+/* --------------------------------------------------------------------------
+   5. Food Gallery Cards
+   -------------------------------------------------------------------------- */
+.food-gallery-card {
+    transition: all var(--df-transition-smooth);
+}
+
+    .food-gallery-card:hover {
+        transform: translateY(-6px);
+        border-color: var(--df-border-gold);
+        box-shadow: var(--df-shadow-dark);
+    }
+
+.gallery-img-frame {
+    height: 230px;
+    overflow: hidden;
+}
+
+    .gallery-img-frame img {
+        height: 100%;
+        object-fit: cover;
+        transition: transform var(--df-transition-smooth);
+    }
+
+.food-gallery-card:hover .gallery-img-frame img {
+    transform: scale(1.08);
+}
+
+/* --------------------------------------------------------------------------
+   6. Chef & Live Kitchen Showcase
+   -------------------------------------------------------------------------- */
+.experience-glass-badge {
+    position: absolute;
+    bottom: -20px;
+    right: -15px;
+    box-shadow: var(--df-shadow-dark);
+    backdrop-filter: blur(12px);
+}
+
+.stat-pill {
+    transition: border-color var(--df-transition-fast);
+}
+
+    .stat-pill:hover {
+        border-color: var(--df-border-gold);
+    }
+
+.kitchen-banner-frame {
+    height: 320px;
+}
+
+    .kitchen-banner-frame img {
+        height: 100%;
+        object-fit: cover;
+    }
+
+.kitchen-specs {
+    box-shadow: var(--df-shadow-dark);
+}
+
+.space-list li {
+    padding-left: 0;
+}
+
+/* --------------------------------------------------------------------------
+   7. Family & Event Cards
+   -------------------------------------------------------------------------- */
+.experience-card-glass {
+    transition: border-color var(--df-transition-fast), transform var(--df-transition-fast);
+}
+
+    .experience-card-glass:hover {
+        border-color: var(--df-border-gold);
+        transform: translateY(-4px);
+    }
+
+.exp-img {
+    height: 250px;
+    object-fit: cover;
+}
+
+.event-card {
+    transition: all var(--df-transition-smooth);
+}
+
+    .event-card:hover {
+        border-color: var(--df-border-gold);
+        transform: translateY(-5px);
+        box-shadow: var(--df-shadow-dark);
+    }
+
+.event-img {
+    height: 260px;
+    object-fit: cover;
+}
+
+/* --------------------------------------------------------------------------
+   8. Desserts & Instagram Grid
+   -------------------------------------------------------------------------- */
+.dessert-item {
+    transition: transform var(--df-transition-smooth), border-color var(--df-transition-smooth);
+}
+
+    .dessert-item:hover {
+        transform: translateY(-6px);
+        border-color: var(--df-border-gold);
+    }
+
+    .dessert-item img {
+        height: 180px;
+        object-fit: cover;
+    }
+
+.insta-tile {
+    height: 180px;
+    cursor: pointer;
+}
+
+.insta-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(212, 175, 55, 0.6);
+    opacity: 0;
+    transition: opacity var(--df-transition-fast);
+}
+
+.insta-tile:hover .insta-overlay {
+    opacity: 1;
+}
+
+/* --------------------------------------------------------------------------
+   9. CTA & Final Banner
+   -------------------------------------------------------------------------- */
+.cta-banner-glass {
+    box-shadow: var(--df-shadow-dark);
+}
+
+.font-heading {
+    font-family: var(--df-font-heading);
+}
+
+/* --------------------------------------------------------------------------
+   10. Responsive Breakpoints
+   -------------------------------------------------------------------------- */
+@media (max-width: 991.98px) {
+    .hero-title {
+        font-size: 2.5rem;
+    }
+
+    .masonry-tall,
+    .masonry-short {
+        height: 280px;
+    }
+
+    .experience-glass-badge {
+        position: relative;
+        bottom: 0;
+        right: 0;
+        margin-top: 15px;
+    }
+
+    .kitchen-banner-frame {
+        height: 240px;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .hero-title {
+        font-size: 1.9rem;
+    }
+
+    .hero-description {
+        font-size: 0.92rem;
+    }
+
+    .section-title {
+        font-size: 1.7rem;
+    }
+
+    .insta-tile {
+        height: 110px;
+    }
+}

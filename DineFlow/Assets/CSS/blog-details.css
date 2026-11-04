@@ -1,0 +1,321 @@
+﻿/* ==========================================================================
+   DINEFLOW LUXURY BLOG DETAILS PAGE STYLESHEET
+   Design Language: Obsidian Canvas, Metallic Gold Accents, Glassmorphism
+   Location: Rajkot, Gujarat
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Shared Page Utilities & Base Layouts
+   -------------------------------------------------------------------------- */
+.bg-dark-surface {
+    background-color: var(--df-surface-light);
+}
+
+.bg-dark-canvas {
+    background-color: var(--df-surface-cream);
+}
+
+.section-padding {
+    padding: 85px 0;
+}
+
+.sub-title {
+    color: var(--df-primary);
+    font-size: 0.85rem;
+    letter-spacing: 3px;
+    font-weight: 600;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.section-title {
+    font-size: 2.3rem;
+    font-weight: 700;
+    color: var(--df-text-main);
+}
+
+.title-divider {
+    width: 60px;
+    height: 2px;
+    background: var(--df-primary);
+    margin-top: 15px;
+}
+
+.text-gold {
+    color: var(--df-primary) !important;
+}
+
+.text-main {
+    color: var(--df-text-main) !important;
+}
+
+.border-gold-subtle {
+    border: 1px solid var(--df-border-gold);
+}
+
+.border-subtle {
+    border: 1px solid var(--df-border-subtle);
+}
+
+.border-top-subtle {
+    border-top: 1px solid var(--df-border-subtle);
+}
+
+.border-bottom-subtle {
+    border-bottom: 1px solid var(--df-border-subtle);
+}
+
+.fs-7 {
+    font-size: 0.82rem !important;
+}
+
+.letter-spacing-2 {
+    letter-spacing: 2px;
+}
+
+.tracking-widest {
+    letter-spacing: 3px;
+}
+
+.badge-gold {
+    display: inline-block;
+    background: rgba(212, 175, 55, 0.2);
+    color: var(--df-primary);
+    border: 1px solid var(--df-border-gold);
+    padding: 6px 14px;
+    border-radius: 30px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+/* --------------------------------------------------------------------------
+   2. Luxury Hero Banner
+   -------------------------------------------------------------------------- */
+.blog-details-hero-section {
+    position: relative;
+    min-height: 55vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    margin-top: -100px;
+    padding-top: 140px;
+    padding-bottom: 60px;
+}
+
+.blog-details-hero-bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    z-index: 1;
+    filter: brightness(0.4) contrast(1.15);
+    transform: scale(1.05);
+}
+
+.blog-details-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(13, 13, 13, 0.8) 0%, rgba(13, 13, 13, 0.5) 50%, rgba(13, 13, 13, 0.95) 100%);
+    z-index: 2;
+}
+
+.blog-details-hero-container {
+    position: relative;
+    z-index: 3;
+}
+
+.hero-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 6px 16px;
+    border-radius: 30px;
+    background: rgba(212, 175, 55, 0.15);
+    border: 1px solid var(--df-border-gold);
+    color: var(--df-primary);
+    font-size: 0.78rem;
+    letter-spacing: 2px;
+    font-weight: 600;
+    margin-bottom: 18px;
+    backdrop-filter: blur(10px);
+}
+
+.hero-title {
+    font-size: 3.2rem;
+    font-weight: 700;
+    line-height: 1.15;
+    color: #FFFFFF;
+    margin-bottom: 15px;
+    text-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.hero-description {
+    font-size: 1.05rem;
+    color: rgba(245, 245, 245, 0.85);
+    max-width: 720px;
+    font-weight: 300;
+    line-height: 1.65;
+}
+
+/* --------------------------------------------------------------------------
+   3. Sticky Meta & Author Bar
+   -------------------------------------------------------------------------- */
+.sticky-article-meta {
+    position: sticky;
+    top: 65px;
+    z-index: 998;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    background-color: rgba(13, 13, 13, 0.95) !important;
+}
+
+.share-icon-btn {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--df-border-subtle);
+    color: var(--df-text-main);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    transition: all var(--df-transition-fast);
+    text-decoration: none;
+}
+
+    .share-icon-btn:hover {
+        background: rgba(212, 175, 55, 0.15);
+        border-color: var(--df-border-gold);
+        color: var(--df-primary);
+        transform: translateY(-2px);
+    }
+
+.author-avatar-lg {
+    width: 50px;
+    height: 50px;
+    background: var(--df-primary);
+    font-size: 1rem;
+}
+
+/* --------------------------------------------------------------------------
+   4. TOC & Rich Article Typography
+   -------------------------------------------------------------------------- */
+.toc-card {
+    box-shadow: var(--df-shadow-dark);
+}
+
+.toc-link {
+    text-decoration: none;
+    transition: color var(--df-transition-fast);
+    display: inline-block;
+}
+
+    .toc-link:hover {
+        color: var(--df-primary) !important;
+    }
+
+.article-body-content .article-p {
+    color: rgba(245, 245, 245, 0.85);
+    font-size: 1.1rem;
+    line-height: 1.85;
+    margin-bottom: 25px;
+    font-weight: 300;
+}
+
+.article-gallery-card {
+    transition: transform var(--df-transition-smooth);
+}
+
+    .article-gallery-card:hover {
+        transform: translateY(-4px);
+    }
+
+.bg-gradient-dark {
+    background: linear-gradient(180deg, transparent 0%, rgba(13, 13, 13, 0.95) 80%);
+}
+
+.tag-pill {
+    display: inline-block;
+    background: rgba(212, 175, 55, 0.1);
+    border: 1px solid var(--df-border-gold);
+    color: var(--df-primary);
+    font-size: 0.78rem;
+    padding: 5px 14px;
+    border-radius: 20px;
+    font-weight: 500;
+}
+
+/* --------------------------------------------------------------------------
+   5. Related Cards & Navigation
+   -------------------------------------------------------------------------- */
+.blog-card {
+    transition: transform var(--df-transition-smooth), border-color var(--df-transition-smooth);
+}
+
+    .blog-card:hover {
+        transform: translateY(-6px);
+        border-color: var(--df-border-gold) !important;
+    }
+
+.hover-gold:hover {
+    color: var(--df-primary) !important;
+}
+
+.nav-arrow-box {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: rgba(212, 175, 55, 0.12);
+    border: 1px solid var(--df-border-gold);
+    color: var(--df-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform var(--df-transition-fast);
+    flex-shrink: 0;
+}
+
+.group-nav:hover .nav-arrow-box {
+    transform: scale(1.1);
+    background: var(--df-primary);
+    color: #000;
+}
+
+.cta-banner-glass {
+    box-shadow: var(--df-shadow-dark);
+}
+
+.font-heading {
+    font-family: var(--df-font-heading);
+}
+
+/* --------------------------------------------------------------------------
+   6. Responsive Breakpoints
+   -------------------------------------------------------------------------- */
+@media (max-width: 991.98px) {
+    .hero-title {
+        font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .hero-title {
+        font-size: 1.9rem;
+    }
+
+    .hero-description {
+        font-size: 0.92rem;
+    }
+
+    .section-title {
+        font-size: 1.7rem;
+    }
+
+    .article-body-content .article-p {
+        font-size: 1rem;
+    }
+}

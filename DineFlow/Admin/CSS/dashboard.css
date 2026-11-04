@@ -1,0 +1,86 @@
+﻿/* ==========================================================================
+   DINEFLOW ADMIN DASHBOARD SPECIFIC STYLESHEET
+   Location: ~/Admin/CSS/dashboard.css
+   ========================================================================== */
+
+/* Typography & Tracking helpers */
+.tracking-wider {
+    letter-spacing: 1px;
+}
+
+.fs-8 {
+    font-size: 0.78rem !important;
+}
+
+.fs-9 {
+    font-size: 0.7rem !important;
+}
+
+/* Stat Cards */
+.stat-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+    .stat-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08) !important;
+    }
+
+.stat-icon-box {
+    width: 46px;
+    height: 46px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+/* Avatar Circle */
+.avatar-circle {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+/* Restaurant Overview Gradient Card */
+.bg-gradient-dark {
+    background: linear-gradient(135deg, #151515 0%, #2A2A2A 100%);
+}
+
+/* Quick Action Boxes */
+.quick-action-box {
+    transition: all 0.2s ease;
+    background-color: #FFFFFF;
+}
+
+    .quick-action-box:hover:not(.opacity-75) {
+        border-color: var(--admin-primary) !important;
+        box-shadow: 0 4px 12px rgba(212, 175, 55, 0.15);
+        transform: translateY(-2px);
+    }
+
+/* Activity Timeline */
+.timeline-wrapper {
+    position: relative;
+    border-left: 2px solid #E6E6E6;
+    margin-left: 10px;
+}
+
+.timeline-badge {
+    width: 24px;
+    height: 24px;
+    left: -13px;
+    top: 0;
+    border: 2px solid #FFFFFF;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.timeline-item:last-child {
+    border-bottom: none !important;
+    padding-bottom: 0 !important;
+    margin-bottom: 0 !important;
+}

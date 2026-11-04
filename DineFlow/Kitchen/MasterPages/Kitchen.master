@@ -1,0 +1,26 @@
+<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Kitchen.master.cs" Inherits="DineFlow.Kitchen.MasterPages.Kitchen" %>
+
+<!DOCTYPE html>
+<html lang="en">
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title><asp:Literal ID="litPageTitle" runat="server" Text="Kitchen Dashboard" /> | DineFlow</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="<%: ResolveUrl("~/Kitchen/CSS/kitchen.css") %>" />
+    <asp:ContentPlaceHolder ID="head" runat="server" />
+</head>
+<body>
+    <form id="kitchenForm" runat="server">
+        <header class="kitchen-header">
+            <a class="kitchen-brand" href="<%: ResolveUrl("~/Kitchen/Dashboard.aspx") %>"><span class="brand-mark">DF</span><span><strong>DineFlow</strong><small>Kitchen workspace</small></span></a>
+            <div class="kitchen-user"><span>Signed in as <strong><%= Server.HtmlEncode((Session["DineFlow.Username"] as string) ?? "Kitchen") %></strong></span><asp:LinkButton ID="lbLogout" runat="server" CssClass="logout-button" OnClick="Logout_Click" CausesValidation="false">Log out</asp:LinkButton></div>
+        </header>
+        <main class="kitchen-content">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server" />
+        </main>
+    </form>
+</body>
+</html>

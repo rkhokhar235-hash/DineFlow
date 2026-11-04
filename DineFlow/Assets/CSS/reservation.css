@@ -1,0 +1,376 @@
+﻿/* ==========================================================================
+   DINEFLOW LUXURY RESERVATION PAGE STYLESHEET
+   Design Language: Obsidian Canvas, Metallic Gold Accents, Glassmorphism
+   Location: Rajkot, Gujarat
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Shared Page Utilities & Base Layouts
+   -------------------------------------------------------------------------- */
+.bg-dark-surface {
+    background-color: var(--df-surface-light);
+}
+
+.bg-dark-canvas {
+    background-color: var(--df-surface-cream);
+}
+
+.section-padding {
+    padding: 85px 0;
+}
+
+.sub-title {
+    color: var(--df-primary);
+    font-size: 0.85rem;
+    letter-spacing: 3px;
+    font-weight: 600;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.section-title {
+    font-size: 2.3rem;
+    font-weight: 700;
+    color: var(--df-text-main);
+}
+
+.title-divider {
+    width: 60px;
+    height: 2px;
+    background: var(--df-primary);
+    margin-top: 15px;
+}
+
+.text-gold {
+    color: var(--df-primary) !important;
+}
+
+.text-main {
+    color: var(--df-text-main) !important;
+}
+
+.border-gold-subtle {
+    border: 1px solid var(--df-border-gold);
+}
+
+.border-subtle {
+    border: 1px solid var(--df-border-subtle);
+}
+
+.border-top-subtle {
+    border-top: 1px solid var(--df-border-subtle);
+}
+
+.border-bottom-subtle {
+    border-bottom: 1px solid var(--df-border-subtle);
+}
+
+.fs-7 {
+    font-size: 0.82rem !important;
+}
+
+.res-text {
+    color: var(--df-text-muted);
+    font-size: 1rem;
+    line-height: 1.7;
+    margin-bottom: 15px;
+}
+
+.feature-icon-sm {
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: rgba(212, 175, 55, 0.15);
+    border: 1px solid var(--df-border-gold);
+    color: var(--df-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    flex-shrink: 0;
+}
+
+.max-w-700 {
+    max-width: 700px;
+}
+
+/* --------------------------------------------------------------------------
+   2. Luxury Hero Banner
+   -------------------------------------------------------------------------- */
+.res-hero-section {
+    position: relative;
+    min-height: 50vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    margin-top: -100px;
+    padding-top: 140px;
+    padding-bottom: 60px;
+}
+
+.res-hero-bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    z-index: 1;
+    filter: brightness(0.4) contrast(1.15);
+    transform: scale(1.05);
+}
+
+.res-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(13, 13, 13, 0.8) 0%, rgba(13, 13, 13, 0.5) 50%, rgba(13, 13, 13, 0.95) 100%);
+    z-index: 2;
+}
+
+.res-hero-container {
+    position: relative;
+    z-index: 3;
+}
+
+.hero-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 6px 16px;
+    border-radius: 30px;
+    background: rgba(212, 175, 55, 0.15);
+    border: 1px solid var(--df-border-gold);
+    color: var(--df-primary);
+    font-size: 0.78rem;
+    letter-spacing: 2px;
+    font-weight: 600;
+    margin-bottom: 18px;
+    backdrop-filter: blur(10px);
+}
+
+.hero-title {
+    font-size: 3.2rem;
+    font-weight: 700;
+    line-height: 1.15;
+    color: #FFFFFF;
+    margin-bottom: 15px;
+    text-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.hero-description {
+    font-size: 1.05rem;
+    color: rgba(245, 245, 245, 0.85);
+    max-width: 720px;
+    font-weight: 300;
+    line-height: 1.65;
+}
+
+/* --------------------------------------------------------------------------
+   3. Luxury Reservation Form Styles
+   -------------------------------------------------------------------------- */
+.res-form-card {
+    background: linear-gradient(135deg, rgba(24, 24, 24, 0.95), rgba(17, 17, 17, 0.98));
+    box-shadow: var(--df-shadow-dark);
+}
+
+.form-group-df {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-label-df {
+    color: var(--df-text-on-dark) !important;
+    font-size: 0.88rem;
+    font-weight: 500;
+    margin-bottom: 8px;
+}
+
+.form-control-df,
+.form-select-df {
+    background-color: rgba(255, 255, 255, 0.94);
+    border: 1px solid var(--df-border-soft);
+    color: var(--df-text-main);
+    padding: 12px 18px;
+    border-radius: 12px;
+    font-size: 0.92rem;
+    transition: all var(--df-transition-fast);
+    outline: none;
+    width: 100%;
+}
+
+    .form-control-df:focus,
+    .form-select-df:focus {
+        border-color: var(--df-primary);
+        background-color: #FFFFFF;
+        box-shadow: 0 0 15px rgba(212, 175, 55, 0.2);
+        color: var(--df-text-main);
+    }
+
+    .form-control-df::placeholder {
+        color: var(--df-text-muted);
+        opacity: 0.6;
+    }
+
+    .form-select-df option {
+        background-color: #FFFFFF;
+        color: var(--df-text-main);
+        padding: 10px;
+    }
+
+.text-area-df {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.alert-gold {
+    background: rgba(212, 175, 55, 0.1);
+}
+
+/* --------------------------------------------------------------------------
+   4. Benefits & Timings Section
+   -------------------------------------------------------------------------- */
+.benefit-card {
+    transition: transform var(--df-transition-smooth), border-color var(--df-transition-smooth);
+}
+
+    .benefit-card:hover {
+        transform: translateY(-6px);
+        border-color: var(--df-border-gold) !important;
+    }
+
+.benefit-icon-box {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    background: rgba(212, 175, 55, 0.12);
+    border: 1px solid var(--df-border-gold);
+    color: var(--df-primary);
+    font-size: 1.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.timing-banner-section {
+    overflow: hidden;
+}
+
+.timing-banner-bg {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    filter: brightness(0.35) contrast(1.1);
+}
+
+.timing-banner-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(13, 13, 13, 0.85) 0%, rgba(13, 13, 13, 0.6) 50%, rgba(13, 13, 13, 0.85) 100%);
+}
+
+.timing-glass-card {
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+
+/* --------------------------------------------------------------------------
+   5. Seating & Celebration
+   -------------------------------------------------------------------------- */
+.seating-card {
+    transition: all var(--df-transition-smooth);
+}
+
+    .seating-card:hover {
+        border-color: var(--df-border-gold) !important;
+        transform: translateY(-6px);
+        box-shadow: var(--df-shadow-dark);
+    }
+
+.seating-img-wrap {
+    height: 220px;
+}
+
+    .seating-img-wrap img {
+        height: 100%;
+        object-fit: cover;
+        transition: transform var(--df-transition-smooth);
+    }
+
+.seating-card:hover .seating-img-wrap img {
+    transform: scale(1.06);
+}
+
+.celebration-list li {
+    font-size: 0.95rem;
+}
+
+/* --------------------------------------------------------------------------
+   6. Guidelines & Map Preview
+   -------------------------------------------------------------------------- */
+.guide-card {
+    transition: border-color var(--df-transition-fast);
+}
+
+    .guide-card:hover {
+        border-color: var(--df-border-gold) !important;
+    }
+
+.map-frame {
+    height: 320px;
+}
+
+    .map-frame img {
+        height: 100%;
+        object-fit: cover;
+    }
+
+.review-card {
+    transition: border-color var(--df-transition-fast);
+}
+
+    .review-card:hover {
+        border-color: var(--df-border-gold) !important;
+    }
+
+/* --------------------------------------------------------------------------
+   7. CTA & Final Banner
+   -------------------------------------------------------------------------- */
+.cta-banner-glass {
+    box-shadow: var(--df-shadow-dark);
+}
+
+.font-heading {
+    font-family: var(--df-font-heading);
+}
+
+/* --------------------------------------------------------------------------
+   8. Responsive Breakpoints
+   -------------------------------------------------------------------------- */
+@media (max-width: 991.98px) {
+    .hero-title {
+        font-size: 2.5rem;
+    }
+
+    .map-frame {
+        height: 260px;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .hero-title {
+        font-size: 1.9rem;
+    }
+
+    .hero-description {
+        font-size: 0.92rem;
+    }
+
+    .section-title {
+        font-size: 1.7rem;
+    }
+
+    .res-form-card {
+        padding: 1.25rem !important;
+    }
+}

@@ -1,0 +1,353 @@
+﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{849BD190-8F6B-4222-BF9B-CB6B85FE6452}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DineFlow</RootNamespace>
+    <AssemblyName>DineFlow</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44324</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Admin\ContactMessages.aspx" />
+    <Content Include="Admin\CSS\admin-master.css" />
+    <Content Include="Admin\CSS\admin-responsive.css" />
+    <Content Include="Admin\CSS\contact-messages.css" />
+    <Content Include="Admin\CSS\dashboard.css" />
+    <Content Include="Admin\CSS\menu-management.css" />
+    <Content Include="Admin\Dashboard.aspx" />
+    <Content Include="Admin\JS\admin-master.js" />
+    <Content Include="Admin\JS\admin-sidebar.js" />
+    <Content Include="Admin\JS\contact-messages.js" />
+    <Content Include="Admin\JS\dashboard.js" />
+    <Content Include="Admin\JS\menu-management.js" />
+    <Content Include="Admin\MenuManagement.aspx" />
+    <Content Include="CSS\Login.css" />
+    <Content Include="Database\MenuManagement.sql" />
+    <Content Include="Database\Cart.sql" />
+    <Content Include="App_Data\DineFlow.mdf" />
+    <Content Include="App_Data\DineFlow_log.ldf">
+      <DependentUpon>DineFlow.mdf</DependentUpon>
+    </Content>
+    <Content Include="Assets\CSS\about.css" />
+    <Content Include="Assets\CSS\blog-details.css" />
+    <Content Include="Assets\CSS\blog.css" />
+    <Content Include="Assets\CSS\branches.css" />
+    <Content Include="Assets\CSS\contact.css" />
+    <Content Include="Assets\CSS\error404.css" />
+    <Content Include="Assets\CSS\faq.css" />
+    <Content Include="Assets\CSS\gallery.css" />
+    <Content Include="Assets\CSS\home.css" />
+    <Content Include="Assets\CSS\master.css" />
+    <Content Include="Assets\CSS\menu-details.css" />
+    <Content Include="Assets\CSS\menu.css" />
+    <Content Include="Assets\CSS\privacy-policy.css" />
+    <Content Include="Assets\CSS\reservation.css" />
+    <Content Include="Assets\CSS\terms-conditions.css" />
+    <Content Include="Assets\Images\Hero\home-hero.png" />
+    <Content Include="Assets\Images\Menu\cat-cocktail.jfif" />
+    <Content Include="Assets\Images\Menu\cat-dessert.jfif" />
+    <Content Include="Assets\Images\Menu\cat-grill.jfif" />
+    <Content Include="Assets\Images\Menu\cat-mains.jfif" />
+    <Content Include="Assets\Images\Menu\cat-starter.jfif" />
+    <Content Include="Assets\Images\Menu\cat-wine.jfif" />
+    <Content Include="Assets\Images\Menu\dish-1.jpg" />
+    <Content Include="Assets\Images\Menu\dish-2.jfif" />
+    <Content Include="Assets\Images\Menu\dish-3.jpg" />
+    <Content Include="Assets\Images\Menu\qr-scan.jfif" />
+    <Content Include="Assets\Images\Menu\story-main.jfif" />
+    <Content Include="Assets\Images\Menu\story-sub.jfif" />
+    <Content Include="Assets\JS\about.js" />
+    <Content Include="Assets\JS\blog-details.js" />
+    <Content Include="Assets\JS\blog.js" />
+    <Content Include="Assets\JS\branches.js" />
+    <Content Include="Assets\JS\contact.js" />
+    <Content Include="Assets\JS\error404.js" />
+    <Content Include="Assets\JS\faq.js" />
+    <Content Include="Assets\JS\gallery.js" />
+    <Content Include="Assets\JS\home.js" />
+    <Content Include="Assets\JS\master.js" />
+    <Content Include="Assets\JS\menu-details.js" />
+    <Content Include="Assets\JS\menu.js" />
+    <Content Include="Assets\JS\privacy-policy.js" />
+    <Content Include="Assets\JS\reservation.js" />
+    <Content Include="Assets\JS\terms-conditions.js" />
+    <Content Include="JS\Login.js" />
+    <Content Include="Kitchen\CSS\kitchen.css" />
+    <Content Include="Kitchen\Dashboard.aspx" />
+    <Content Include="Admin\prodimg\.gitkeep" />
+    <Content Include="Login.aspx" />
+    <Content Include="Order.aspx" />
+    <Content Include="Show_Cart.aspx" />
+    <Content Include="Assets\CSS\order.css" />
+    <Content Include="Visitor\About.aspx" />
+    <Content Include="Visitor\Blog.aspx" />
+    <Content Include="Visitor\BlogDetails.aspx" />
+    <Content Include="Visitor\Branches.aspx" />
+    <Content Include="Visitor\Contact.aspx" />
+    <Content Include="Visitor\Error404.aspx" />
+    <Content Include="Visitor\FAQ.aspx" />
+    <Content Include="Visitor\Gallery.aspx" />
+    <Content Include="Visitor\Home.aspx" />
+    <Content Include="Visitor\MenuDetails.aspx" />
+    <Content Include="Visitor\OurMenu.aspx" />
+    <Content Include="Visitor\PrivacyPolicy.aspx" />
+    <Content Include="Visitor\Reservation.aspx" />
+    <Content Include="Visitor\TermsConditions.aspx" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Admin\ContactMessages.aspx.cs">
+      <DependentUpon>ContactMessages.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\ContactMessages.aspx.designer.cs">
+      <DependentUpon>ContactMessages.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Dashboard.aspx.cs">
+      <DependentUpon>Dashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Dashboard.aspx.designer.cs">
+      <DependentUpon>Dashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\MasterPages\Admin.Master.cs">
+      <DependentUpon>Admin.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\MasterPages\Admin.Master.designer.cs">
+      <DependentUpon>Admin.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\MenuManagement.aspx.cs">
+      <DependentUpon>MenuManagement.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\MenuManagement.aspx.designer.cs">
+      <DependentUpon>MenuManagement.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Kitchen\Dashboard.aspx.cs">
+      <DependentUpon>Dashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Kitchen\Dashboard.aspx.designer.cs">
+      <DependentUpon>Dashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Kitchen\MasterPages\Kitchen.master.cs">
+      <DependentUpon>Kitchen.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Kitchen\MasterPages\Kitchen.master.designer.cs">
+      <DependentUpon>Kitchen.master</DependentUpon>
+    </Compile>
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Order.aspx.cs">
+      <DependentUpon>Order.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Show_Cart.aspx.cs">
+      <DependentUpon>Show_Cart.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Show_Cart.aspx.designer.cs">
+      <DependentUpon>Show_Cart.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Order.aspx.designer.cs">
+      <DependentUpon>Order.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MasterPages\Visitor.master.cs">
+      <DependentUpon>Visitor.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Visitor\About.aspx.cs">
+      <DependentUpon>About.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Visitor\Blog.aspx.cs">
+      <DependentUpon>Blog.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Visitor\BlogDetails.aspx.cs">
+      <DependentUpon>BlogDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Visitor\Branches.aspx.cs">
+      <DependentUpon>Branches.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Visitor\Contact.aspx.cs">
+      <DependentUpon>Contact.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Visitor\Contact.aspx.designer.cs">
+      <DependentUpon>Contact.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Visitor\Error404.aspx.cs">
+      <DependentUpon>Error404.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Visitor\FAQ.aspx.cs">
+      <DependentUpon>FAQ.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Visitor\Gallery.aspx.cs">
+      <DependentUpon>Gallery.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Visitor\Home.aspx.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Visitor\MenuDetails.aspx.cs">
+      <DependentUpon>MenuDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Visitor\OurMenu.aspx.cs">
+      <DependentUpon>OurMenu.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Visitor\PrivacyPolicy.aspx.cs">
+      <DependentUpon>PrivacyPolicy.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Visitor\Reservation.aspx.cs">
+      <DependentUpon>Reservation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Visitor\TermsConditions.aspx.cs">
+      <DependentUpon>TermsConditions.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="MasterPages\Visitor.master" />
+    <Content Include="Admin\MasterPages\Admin.Master" />
+    <Content Include="Kitchen\MasterPages\Kitchen.master" />
+    <None Include="packages.config" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Assets\Images\About\" />
+    <Folder Include="Assets\Images\Blog\" />
+    <Folder Include="Assets\Images\Branches\" />
+    <Folder Include="Assets\Images\Chefs\" />
+    <Folder Include="Assets\Images\Chef\" />
+    <Folder Include="Assets\Images\Contact\" />
+    <Folder Include="Assets\Images\Error404\" />
+    <Folder Include="Assets\Images\FAQ\" />
+    <Folder Include="Assets\Images\Gallery\" />
+    <Folder Include="Assets\Images\Offers\" />
+    <Folder Include="Assets\Images\Privacy\" />
+    <Folder Include="Assets\Images\Reservation\" />
+    <Folder Include="Assets\Images\Terms\" />
+    <Folder Include="Assets\Images\Testimonials\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>63673</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44324/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+</Project>

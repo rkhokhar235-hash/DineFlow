@@ -1,0 +1,264 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Admin.master.cs" Inherits="DineFlow.Admin.MasterPages.Admin" %>
+
+<!DOCTYPE html>
+<html lang="en">
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><asp:Literal ID="litPageTitle" runat="server" Text="Dashboard" /> | DineFlow Admin Portal</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+    <!-- Bootstrap 5 CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
+
+    <!-- Admin Custom Stylesheets (Relative paths from ~/Admin/MasterPages/) -->
+    <link rel="stylesheet" href="<%: ResolveUrl("~/Admin/CSS/admin-master.css") %>" />
+    <link rel="stylesheet" href="<%: ResolveUrl("~/Admin/CSS/admin-responsive.css") %>" />
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body class="admin-body">
+    <form id="formAdmin" runat="server" enctype="multipart/form-data">
+
+        <!-- Mobile Sidebar Overlay -->
+        <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+        <!-- App Layout Wrapper -->
+        <div class="admin-app-wrapper" id="appWrapper">
+
+            <!-- Sidebar -->
+            <aside class="admin-sidebar" id="adminSidebar">
+                <div class="sidebar-header">
+                    <a href="<%: ResolveUrl("~/Admin/Dashboard.aspx") %>" class="brand-link">
+                        <div class="brand-logo-icon">
+                            <i class="fa-solid fa-utensils"></i>
+                        </div>
+                        <div class="brand-text">
+                            <span class="brand-name">DineFlow</span>
+                            <span class="brand-badge">Admin SaaS</span>
+                        </div>
+                    </a>
+                    <button type="button" class="sidebar-toggler d-none d-lg-flex" id="sidebarCollapseBtn" aria-label="Collapse Sidebar">
+                        <i class="fa-solid fa-angles-left"></i>
+                    </button>
+                    <button type="button" class="sidebar-close d-lg-none" id="sidebarCloseBtn" aria-label="Close Sidebar">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+
+                <div class="sidebar-search px-3 py-2">
+                    <div class="sidebar-search-box">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <input type="text" placeholder="Quick search..." class="form-control" />
+                    </div>
+                </div>
+
+                <div class="sidebar-menu-container">
+                    <ul class="sidebar-menu">
+                        <li class="menu-header"><span>Main</span></li>
+                        <li class="sidebar-item">
+                            <a href="<%: ResolveUrl("~/Admin/Dashboard.aspx") %>" class="sidebar-link <%= Request.Url.AbsolutePath.EndsWith("Dashboard.aspx", StringComparison.OrdinalIgnoreCase) ? "active" : "" %>">
+                                <i class="fa-solid fa-chart-pie menu-icon"></i>
+                                <span class="menu-text">Dashboard</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a href="<%: ResolveUrl("~/Admin/ContactMessages.aspx") %>" class="sidebar-link <%= Request.Url.AbsolutePath.EndsWith("ContactMessages.aspx", StringComparison.OrdinalIgnoreCase) ? "active" : "" %>">
+                                <i class="fa-solid fa-envelope-open-text menu-icon"></i>
+                                <span class="menu-text">Contact Messages</span>
+                                <span class="badge bg-primary ms-auto badge-pill">New</span>
+                            </a>
+                        </li>
+
+                        <li class="menu-header"><span>Management</span></li>
+                        <li class="sidebar-item">
+                            <a href="<%: ResolveUrl("~/Admin/MenuManagement.aspx") %>" class="sidebar-link <%= Request.Url.AbsolutePath.EndsWith("MenuManagement.aspx", StringComparison.OrdinalIgnoreCase) ? "active" : "" %>">
+                                <i class="fa-solid fa-utensils menu-icon"></i>
+                                <span class="menu-text">Menu Management</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a href="#" class="sidebar-link disabled" tabindex="-1" aria-disabled="true">
+                                <i class="fa-solid fa-calendar-check menu-icon"></i>
+                                <span class="menu-text">Reservations</span>
+                                <span class="badge bg-secondary ms-auto">Soon</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a href="#" class="sidebar-link disabled" tabindex="-1" aria-disabled="true">
+                                <i class="fa-solid fa-images menu-icon"></i>
+                                <span class="menu-text">Gallery</span>
+                                <span class="badge bg-secondary ms-auto">Soon</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a href="#" class="sidebar-link disabled" tabindex="-1" aria-disabled="true">
+                                <i class="fa-solid fa-newspaper menu-icon"></i>
+                                <span class="menu-text">Blog</span>
+                                <span class="badge bg-secondary ms-auto">Soon</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a href="#" class="sidebar-link disabled" tabindex="-1" aria-disabled="true">
+                                <i class="fa-solid fa-code-branch menu-icon"></i>
+                                <span class="menu-text">Branches</span>
+                                <span class="badge bg-secondary ms-auto">Soon</span>
+                            </a>
+                        </li>
+
+                        <li class="menu-header"><span>System</span></li>
+                        <li class="sidebar-item">
+                            <a href="#" class="sidebar-link disabled" tabindex="-1" aria-disabled="true">
+                                <i class="fa-solid fa-users-gear menu-icon"></i>
+                                <span class="menu-text">Users</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a href="#" class="sidebar-link disabled" tabindex="-1" aria-disabled="true">
+                                <i class="fa-solid fa-gear menu-icon"></i>
+                                <span class="menu-text">Settings</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="sidebar-footer">
+                    <div class="sidebar-user-card">
+                        <div class="user-avatar">
+                            <span>DA</span>
+                        </div>
+                        <div class="user-info">
+                            <h6 class="user-name mb-0">DineFlow Admin</h6>
+                            <small class="user-role">Super Administrator</small>
+                        </div>
+                        <asp:LinkButton ID="lbSidebarLogout" runat="server" CssClass="user-logout-btn" ToolTip="Logout" OnClick="Logout_Click" CausesValidation="false">
+                            <i class="fa-solid fa-power-off"></i>
+                        </asp:LinkButton>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Main Content Container -->
+            <div class="admin-main-wrapper" id="mainWrapper">
+
+                <!-- Top Navbar -->
+                <header class="admin-topbar">
+                    <div class="topbar-left">
+                        <button type="button" class="topbar-menu-btn" id="sidebarMobileToggle" aria-label="Toggle Mobile Sidebar">
+                            <i class="fa-solid fa-bars-staggered"></i>
+                        </button>
+                        <nav aria-label="breadcrumb" class="d-none d-md-block ms-3">
+                            <ol class="breadcrumb mb-0">
+                                <li class="breadcrumb-item"><a href="<%: ResolveUrl("~/Admin/Dashboard.aspx") %>">Admin</a></li>
+                                <li class="breadcrumb-item active" aria-current="page"><asp:Literal ID="litBreadcrumbCurrent" runat="server" Text="Dashboard" /></li>
+                            </ol>
+                        </nav>
+                    </div>
+
+                    <div class="topbar-right">
+                        <div class="topbar-search-dropdown d-none d-lg-block">
+                            <div class="input-group input-group-sm">
+                                <span class="input-group-text bg-transparent border-end-0"><i class="fa-solid fa-magnifying-glass text-muted"></i></span>
+                                <input type="text" class="form-control border-start-0 ps-0" placeholder="Search orders, messages..." />
+                            </div>
+                        </div>
+
+                        <!-- Notification Dropdown -->
+                        <div class="dropdown topbar-dropdown">
+                            <button class="topbar-action-btn dropdown-toggle no-arrow" type="button" id="notificationDropdown" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Notifications">
+                                <i class="fa-regular fa-bell"></i>
+                                <span class="notification-indicator"></span>
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-end shadow-sm border-0 py-0 notification-menu" aria-labelledby="notificationDropdown">
+                                <li class="dropdown-header border-bottom px-3 py-2 d-flex justify-content-between align-items-center">
+                                    <span class="fw-semibold text-dark">Notifications</span>
+                                    <span class="badge bg-primary rounded-pill">3 New</span>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item py-2.5 border-bottom px-3" href="#">
+                                        <div class="d-flex align-items-start">
+                                            <div class="flex-shrink-0 text-primary bg-primary-subtle p-2 rounded-circle me-3">
+                                                <i class="fa-solid fa-envelope"></i>
+                                            </div>
+                                            <div class="flex-grow-1">
+                                                <p class="mb-0 fs-7 fw-semibold">New contact message received</p>
+                                                <small class="text-muted">Aarav Patel sent an inquiry</small>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item py-2.5 border-bottom px-3" href="#">
+                                        <div class="d-flex align-items-start">
+                                            <div class="flex-shrink-0 text-success bg-success-subtle p-2 rounded-circle me-3">
+                                                <i class="fa-solid fa-calendar-check"></i>
+                                            </div>
+                                            <div class="flex-grow-1">
+                                                <p class="mb-0 fs-7 fw-semibold">Table Reservation Confirmed</p>
+                                                <small class="text-muted">Family Cabin #2 booked for tonight</small>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="dropdown-footer text-center py-2">
+                                    <a href="#" class="fs-7 text-primary text-decoration-none fw-semibold">View All Notifications</a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- Profile Dropdown -->
+                        <div class="dropdown topbar-dropdown ms-2">
+                            <button class="topbar-profile-btn dropdown-toggle no-arrow d-flex align-items-center gap-2" type="button" id="profileDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                                <div class="profile-avatar-sm">
+                                    <span>DA</span>
+                                </div>
+                                <span class="d-none d-sm-inline-block fw-medium text-dark fs-7">DineFlow Admin</span>
+                                <i class="fa-solid fa-chevron-down fs-8 text-muted"></i>
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-end shadow-sm border-0 py-2 profile-menu" aria-labelledby="profileDropdown">
+                                <li class="px-3 py-1 mb-1">
+                                    <span class="d-block fw-semibold text-dark">DineFlow Admin</span>
+                                    <small class="text-muted">admin@dineflow.in</small>
+                                </li>
+                                <li><hr class="dropdown-divider my-1"></li>
+                                <li><a class="dropdown-item py-2" href="#"><i class="fa-regular fa-user me-2 text-muted"></i>Profile Settings</a></li>
+                                <li><a class="dropdown-item py-2" href="#"><i class="fa-solid fa-sliders me-2 text-muted"></i>System Preferences</a></li>
+                                <li><hr class="dropdown-divider my-1"></li>
+                                <li><asp:LinkButton ID="lbProfileLogout" runat="server" CssClass="dropdown-item py-2 text-danger" OnClick="Logout_Click" CausesValidation="false"><i class="fa-solid fa-power-off me-2"></i>Log Out</asp:LinkButton></li>
+                            </ul>
+                        </div>
+                    </div>
+                </header>
+
+                <!-- Page Content Area -->
+                <main class="admin-content-area">
+                    <asp:ContentPlaceHolder ID="MainContent" runat="server">
+                    </asp:ContentPlaceHolder>
+                </main>
+
+                <!-- Footer -->
+              
+            </div>
+        </div>
+
+    </form>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Admin Custom JavaScript (Relative paths from ~/Admin/MasterPages/) -->
+    <script src="<%: ResolveUrl("~/Admin/JS/admin-master.js") %>"></script>
+    <script src="<%: ResolveUrl("~/Admin/JS/admin-sidebar.js") %>"></script>
+
+    <asp:ContentPlaceHolder ID="scripts" runat="server">
+    </asp:ContentPlaceHolder>
+</body>
+</html>

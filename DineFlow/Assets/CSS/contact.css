@@ -1,0 +1,426 @@
+﻿/* ==========================================================================
+   DINEFLOW LUXURY CONTACT PAGE STYLESHEET
+   Design Language: Obsidian Canvas, Metallic Gold Accents, Glassmorphism
+   Location: Rajkot, Gujarat
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Shared Page Utilities & Base Layouts
+   -------------------------------------------------------------------------- */
+.bg-dark-surface {
+    background-color: var(--df-surface-light);
+}
+
+.bg-dark-canvas {
+    background-color: var(--df-surface-cream);
+}
+
+.section-padding {
+    padding: 85px 0;
+}
+
+.sub-title {
+    color: var(--df-primary);
+    font-size: 0.85rem;
+    letter-spacing: 3px;
+    font-weight: 600;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.section-title {
+    font-size: 2.3rem;
+    font-weight: 700;
+    color: var(--df-text-main);
+}
+
+.title-divider {
+    width: 60px;
+    height: 2px;
+    background: var(--df-primary);
+    margin-top: 15px;
+}
+
+.text-gold {
+    color: var(--df-primary) !important;
+}
+
+.text-main {
+    color: var(--df-text-main) !important;
+}
+
+.border-gold-subtle {
+    border: 1px solid var(--df-border-gold);
+}
+
+.border-subtle {
+    border: 1px solid var(--df-border-subtle);
+}
+
+.border-top-subtle {
+    border-top: 1px solid var(--df-border-subtle);
+}
+
+.border-bottom-subtle {
+    border-bottom: 1px solid var(--df-border-subtle);
+}
+
+.fs-7 {
+    font-size: 0.82rem !important;
+}
+
+.max-w-700 {
+    max-width: 700px;
+}
+
+.contact-text {
+    color: var(--df-text-muted);
+    font-size: 1rem;
+    line-height: 1.7;
+    margin-bottom: 15px;
+}
+
+.feature-icon-sm {
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: rgba(212, 175, 55, 0.15);
+    border: 1px solid var(--df-border-gold);
+    color: var(--df-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    background: rgba(255, 255, 255, 0.82);
+}
+
+.btn-df-gold-sm {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(212, 175, 55, 0.28);
+    box-shadow: 0 10px 20px rgba(17, 17, 17, 0.05);
+    background: linear-gradient(135deg, var(--df-primary), var(--df-primary-accent));
+    color: #000 !important;
+    font-weight: 600;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+        background: #FFFFFF;
+    border-radius: 30px;
+    border: none;
+        transform: translateY(-2px);
+        box-shadow: 0 14px 24px rgba(17, 17, 17, 0.08);
+    cursor: pointer;
+    text-decoration: none;
+}
+
+    .btn-df-gold-sm:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(212, 175, 55, 0.35);
+    }
+
+.btn-df-outline {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 24px;
+    background: transparent;
+    color: var(--df-text-main) !important;
+    font-weight: 600;
+    font-size: 0.88rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-radius: 50px;
+    border: 1px solid var(--df-border-gold);
+    transition: all var(--df-transition-fast);
+    cursor: pointer;
+    text-decoration: none;
+}
+
+    .btn-df-outline:hover {
+        background: rgba(212, 175, 55, 0.1);
+        border-color: var(--df-primary);
+        color: var(--df-primary) !important;
+        transform: translateY(-2px);
+    }
+
+    .btn-df-outline.btn-sm {
+        padding: 8px 18px;
+        font-size: 0.8rem;
+    }
+
+/* --------------------------------------------------------------------------
+   2. Luxury Hero Banner
+   -------------------------------------------------------------------------- */
+.contact-hero-section {
+    position: relative;
+    min-height: 50vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    margin-top: -100px;
+    padding-top: 140px;
+    padding-bottom: 60px;
+}
+
+.contact-hero-bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    z-index: 1;
+    filter: brightness(0.9) contrast(1.15);
+    transform: scale(1.05);
+}
+
+.contact-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(13, 13, 13, 0.8) 0%, rgba(13, 13, 13, 0.5) 50%, rgba(13, 13, 13, 0.95) 100%);
+    z-index: 2;
+}
+
+.contact-hero-container {
+    position: relative;
+    z-index: 3;
+}
+
+.hero-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 6px 16px;
+    border-radius: 30px;
+    background: rgba(212, 175, 55, 0.15);
+    border: 1px solid var(--df-border-gold);
+    color: var(--df-primary);
+    font-size: 0.78rem;
+    letter-spacing: 2px;
+    font-weight: 600;
+    margin-bottom: 18px;
+    backdrop-filter: blur(10px);
+}
+
+.hero-title {
+    font-size: 3.2rem;
+    font-weight: 700;
+    line-height: 1.15;
+    color: #FFFFFF;
+    margin-bottom: 15px;
+    text-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.hero-description {
+    font-size: 1.05rem;
+    color: rgba(245, 245, 245, 0.85);
+    max-width: 720px;
+    font-weight: 300;
+    line-height: 1.65;
+}
+
+/* --------------------------------------------------------------------------
+   3. Contact Cards & Glass Form
+   -------------------------------------------------------------------------- */
+.contact-info-card {
+    transition: transform var(--df-transition-smooth), border-color var(--df-transition-smooth);
+}
+
+    .contact-info-card:hover {
+        transform: translateY(-6px);
+        border-color: var(--df-border-gold) !important;
+    }
+
+.info-icon-box {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    background: rgba(212, 175, 55, 0.12);
+    border: 1px solid var(--df-border-gold);
+    color: var(--df-primary);
+    font-size: 1.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.info-link {
+    text-decoration: none;
+    transition: color var(--df-transition-fast);
+}
+
+    .info-link:hover {
+        color: #ffffff !important;
+    }
+
+.contact-form-card {
+    background: linear-gradient(135deg, rgba(24, 24, 24, 0.95), rgba(17, 17, 17, 0.98));
+    box-shadow: var(--df-shadow-dark);
+}
+
+.form-group-df {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-label-df {
+    color: var(--df-text-on-dark) !important;
+    font-size: 0.88rem;
+    font-weight: 500;
+    margin-bottom: 8px;
+}
+
+.form-control-df,
+.form-select-df {
+    background-color: rgba(255, 255, 255, 0.94);
+    border: 1px solid var(--df-border-soft);
+    color: var(--df-text-main);
+    padding: 12px 18px;
+    border-radius: 12px;
+    font-size: 0.92rem;
+    transition: all var(--df-transition-fast);
+    outline: none;
+    width: 100%;
+}
+
+    .form-control-df:focus,
+    .form-select-df:focus {
+        border-color: var(--df-primary);
+        background-color: #FFFFFF;
+        box-shadow: 0 0 15px rgba(212, 175, 55, 0.2);
+        color: var(--df-text-main);
+    }
+
+    .form-control-df::placeholder {
+        color: var(--df-text-muted);
+        opacity: 0.6;
+    }
+
+    .form-select-df option {
+        background-color: #FFFFFF;
+        color: var(--df-text-main);
+        padding: 10px;
+    }
+
+.text-area-df {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.alert-gold {
+    background: rgba(212, 175, 55, 0.1);
+}
+
+/* --------------------------------------------------------------------------
+   4. Hours, Map & Accordion FAQs
+   -------------------------------------------------------------------------- */
+.hours-card {
+    box-shadow: var(--df-shadow-dark);
+}
+
+.map-frame {
+    height: 340px;
+}
+
+    .map-frame img {
+        height: 100%;
+        object-fit: cover;
+    }
+
+.space-list li {
+    padding-left: 0;
+}
+
+.quick-card {
+    transition: transform var(--df-transition-smooth), border-color var(--df-transition-smooth);
+}
+
+    .quick-card:hover {
+        transform: translateY(-6px);
+        border-color: var(--df-border-gold) !important;
+    }
+
+.df-accordion .accordion-button {
+    box-shadow: none;
+    padding: 18px 24px;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: color var(--df-transition-fast);
+}
+
+    .df-accordion .accordion-button:not(.collapsed) {
+        color: var(--df-primary);
+        background-color: var(--df-surface-cream);
+    }
+
+    .df-accordion .accordion-button::after {
+        filter: invert(0.8) sepia(1) saturate(5) hue-rotate(5deg);
+    }
+
+.df-accordion .accordion-body {
+    padding: 20px 24px;
+    line-height: 1.65;
+}
+
+.social-glass-pill {
+    display: inline-flex;
+    align-items: center;
+    padding: 10px 26px;
+    border-radius: 30px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--df-border-gold);
+    color: var(--df-text-main);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all var(--df-transition-fast);
+}
+
+    .social-glass-pill:hover {
+        background: rgba(212, 175, 55, 0.15);
+        color: var(--df-primary);
+        transform: translateY(-3px);
+    }
+
+/* --------------------------------------------------------------------------
+   5. CTA & Final Banner
+   -------------------------------------------------------------------------- */
+.cta-banner-glass {
+    box-shadow: var(--df-shadow-dark);
+}
+
+.font-heading {
+    font-family: var(--df-font-heading);
+}
+
+/* --------------------------------------------------------------------------
+   6. Responsive Breakpoints
+   -------------------------------------------------------------------------- */
+@media (max-width: 991.98px) {
+    .hero-title {
+        font-size: 2.5rem;
+    }
+
+    .map-frame {
+        height: 260px;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .hero-title {
+        font-size: 1.9rem;
+    }
+
+    .hero-description {
+        font-size: 0.92rem;
+    }
+
+    .section-title {
+        font-size: 1.7rem;
+    }
+
+    .contact-form-card {
+        padding: 1.25rem !important;
+    }
+}

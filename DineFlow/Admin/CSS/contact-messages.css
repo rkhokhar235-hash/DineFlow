@@ -1,0 +1,111 @@
+﻿/* ==========================================================================
+   DINEFLOW CONTACT MESSAGES MANAGEMENT STYLESHEET
+   Location: ~/Admin/CSS/contact-messages.css
+   ========================================================================== */
+
+/* Tracking & Font Utilities */
+.tracking-wider {
+    letter-spacing: 1px;
+}
+
+.fs-8 {
+    font-size: 0.78rem !important;
+}
+
+.fs-9 {
+    font-size: 0.7rem !important;
+}
+
+/* Stat Cards */
+.stat-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+    .stat-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08) !important;
+    }
+
+.stat-icon-box {
+    width: 46px;
+    height: 46px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+/* Avatar Initials Circle */
+.avatar-circle {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+/* GridView Pager Styling */
+.gridview-pager table {
+    margin: 0 auto;
+}
+
+.gridview-pager td {
+    padding: 0 4px;
+}
+
+    .gridview-pager td span,
+    .gridview-pager td a {
+        display: inline-block;
+        padding: 6px 12px;
+        border-radius: 6px;
+        font-size: 0.85rem;
+        text-decoration: none;
+    }
+
+    .gridview-pager td span {
+        background-color: var(--admin-primary);
+        color: #111;
+        font-weight: 600;
+    }
+
+    .gridview-pager td a {
+        background-color: #F8FAFC;
+        color: #475569;
+        border: 1px solid #E2E8F0;
+        transition: all 0.2s ease;
+    }
+
+        .gridview-pager td a:hover {
+            background-color: #E2E8F0;
+            color: #1E293B;
+        }
+
+/* Modal Custom Enhancements */
+.modal-backdrop.show {
+    opacity: 0.5;
+}
+
+/* Keep the dense data grid usable without widening the page on small screens. */
+#gvContactMessages {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+}
+
+#gvContactMessages > tbody {
+    min-width: 760px;
+}
+
+@media (max-width: 575.98px) {
+    .card-header {
+        align-items: flex-start !important;
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+
+    .card-header .form-select {
+        min-width: 76px;
+    }
+}

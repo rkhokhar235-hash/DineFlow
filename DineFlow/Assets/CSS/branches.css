@@ -1,0 +1,406 @@
+﻿/* ==========================================================================
+   DINEFLOW LUXURY BRANCHES PAGE STYLESHEET
+   Design Language: Obsidian Canvas, Metallic Gold Accents, Glassmorphism
+   Location: Rajkot, Gujarat
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Shared Page Utilities & Base Layouts
+   -------------------------------------------------------------------------- */
+.bg-dark-surface {
+    background-color: var(--df-surface-light);
+}
+
+.bg-dark-canvas {
+    background-color: var(--df-surface-cream);
+}
+
+.section-padding {
+    padding: 85px 0;
+}
+
+.sub-title {
+    color: var(--df-primary);
+    font-size: 0.85rem;
+    letter-spacing: 3px;
+    font-weight: 600;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.section-title {
+    font-size: 2.3rem;
+    font-weight: 700;
+    color: var(--df-text-main);
+}
+
+.title-divider {
+    width: 60px;
+    height: 2px;
+    background: var(--df-primary);
+    margin-top: 15px;
+}
+
+.text-gold {
+    color: var(--df-primary) !important;
+}
+
+.text-main {
+    color: var(--df-text-main) !important;
+}
+
+.border-gold-subtle {
+    border: 1px solid var(--df-border-gold);
+}
+
+.border-subtle {
+    border: 1px solid var(--df-border-subtle);
+}
+
+.border-top-subtle {
+    border-top: 1px solid var(--df-border-subtle);
+}
+
+.border-bottom-subtle {
+    border-bottom: 1px solid var(--df-border-subtle);
+}
+
+.fs-7 {
+    font-size: 0.82rem !important;
+}
+
+.max-w-700 {
+    max-width: 700px;
+}
+
+.opacity-85 {
+    opacity: 0.85;
+}
+
+.branch-text {
+    color: var(--df-text-muted);
+    font-size: 1rem;
+    line-height: 1.7;
+    margin-bottom: 15px;
+}
+
+.branch-badge-pill {
+    background: rgba(212, 175, 55, 0.1);
+    border: 1px solid var(--df-border-gold);
+    color: var(--df-primary);
+    font-size: 0.82rem;
+    padding: 8px 18px;
+    border-radius: 30px;
+    font-weight: 500;
+}
+
+.badge-gold {
+    display: inline-block;
+    background: rgba(212, 175, 55, 0.15);
+    color: var(--df-primary);
+    border: 1px solid var(--df-border-gold);
+    padding: 6px 14px;
+    border-radius: 30px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.badge-subtle {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--df-text-muted);
+    border: 1px solid var(--df-border-subtle);
+    padding: 6px 14px;
+    border-radius: 30px;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.btn-df-gold-sm {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 18px;
+    background: linear-gradient(135deg, var(--df-primary), var(--df-primary-accent));
+    color: #000 !important;
+    font-weight: 600;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-radius: 30px;
+    border: none;
+    transition: transform var(--df-transition-fast), box-shadow var(--df-transition-fast);
+    cursor: pointer;
+    text-decoration: none;
+}
+
+    .btn-df-gold-sm:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(212, 175, 55, 0.35);
+    }
+
+.btn-df-outline {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 24px;
+    background: transparent;
+    color: var(--df-text-main) !important;
+    font-weight: 600;
+    font-size: 0.88rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-radius: 50px;
+    border: 1px solid var(--df-border-gold);
+    transition: all var(--df-transition-fast);
+    cursor: pointer;
+    text-decoration: none;
+}
+
+    .btn-df-outline:hover {
+        background: rgba(212, 175, 55, 0.1);
+        border-color: var(--df-primary);
+        color: var(--df-primary) !important;
+        transform: translateY(-2px);
+    }
+
+/* --------------------------------------------------------------------------
+   2. Luxury Hero Banner
+   -------------------------------------------------------------------------- */
+.branch-hero-section {
+    position: relative;
+    min-height: 50vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    margin-top: -100px;
+    background: rgba(255, 255, 255, 0.82);
+    padding-bottom: 60px;
+}
+
+.branch-hero-bg {
+    position: absolute;
+    inset: 0;
+    border: 1px solid rgba(212, 175, 55, 0.28);
+    box-shadow: 0 10px 20px rgba(17, 17, 17, 0.05);
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    z-index: 1;
+        background: #FFFFFF;
+    transform: scale(1.05);
+}
+        transform: translateY(-3px);
+        box-shadow: 0 14px 24px rgba(17, 17, 17, 0.08);
+.branch-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(13, 13, 13, 0.8) 0%, rgba(13, 13, 13, 0.5) 50%, rgba(13, 13, 13, 0.95) 100%);
+    z-index: 2;
+}
+
+.branch-hero-container {
+    position: relative;
+    z-index: 3;
+}
+
+.hero-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 6px 16px;
+    border-radius: 30px;
+    background: rgba(212, 175, 55, 0.15);
+    border: 1px solid var(--df-border-gold);
+    color: var(--df-primary);
+    font-size: 0.78rem;
+    letter-spacing: 2px;
+    font-weight: 600;
+    margin-bottom: 18px;
+    backdrop-filter: blur(10px);
+}
+
+.hero-title {
+    font-size: 3.2rem;
+    font-weight: 700;
+    line-height: 1.15;
+    color: #FFFFFF;
+    margin-bottom: 15px;
+    text-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.hero-description {
+    font-size: 1.05rem;
+    color: rgba(245, 245, 245, 0.85);
+    max-width: 720px;
+    font-weight: 300;
+    line-height: 1.65;
+}
+
+/* --------------------------------------------------------------------------
+   3. Featured Flagship Branch Section
+   -------------------------------------------------------------------------- */
+.branch-featured-card {
+    box-shadow: var(--df-shadow-dark);
+}
+
+.branch-img-wrapper {
+    height: 380px;
+}
+
+.branch-img {
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--df-transition-smooth);
+}
+
+.branch-featured-card:hover .branch-img {
+    transform: scale(1.05);
+}
+
+.branch-status-tag.active-tag {
+    position: absolute;
+    top: 18px;
+    left: 18px;
+    background: rgba(46, 204, 113, 0.9);
+    color: #000;
+    font-size: 0.78rem;
+    padding: 5px 14px;
+    border-radius: 20px;
+    font-weight: 700;
+    backdrop-filter: blur(8px);
+}
+
+.branch-card-title {
+    font-size: 2.1rem;
+    color: var(--df-text-main);
+}
+
+/* --------------------------------------------------------------------------
+   4. Multi-Branch Grid Cards
+   -------------------------------------------------------------------------- */
+.branch-grid-card {
+    transition: transform var(--df-transition-smooth), border-color var(--df-transition-smooth);
+}
+
+    .branch-grid-card:hover {
+        transform: translateY(-6px);
+        border-color: var(--df-border-gold) !important;
+    }
+
+.branch-card-heading {
+    font-size: 1.35rem;
+}
+
+.status-indicator.open {
+    color: #2ecc71;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.status-indicator.coming {
+    color: var(--df-primary);
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+/* --------------------------------------------------------------------------
+   5. Facilities, Hours & Maps
+   -------------------------------------------------------------------------- */
+.opening-hours-card {
+    box-shadow: var(--df-shadow-dark);
+}
+
+.facility-card {
+    transition: transform var(--df-transition-smooth), border-color var(--df-transition-smooth);
+}
+
+    .facility-card:hover {
+        transform: translateY(-6px);
+        border-color: var(--df-border-gold) !important;
+    }
+
+.facility-icon-box {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    background: rgba(212, 175, 55, 0.12);
+    border: 1px solid var(--df-border-gold);
+    color: var(--df-primary);
+    font-size: 1.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.space-list li {
+    padding-left: 0;
+}
+
+.map-frame {
+    height: 340px;
+}
+
+    .map-frame img {
+        height: 100%;
+        object-fit: cover;
+    }
+
+.review-card {
+    transition: border-color var(--df-transition-fast);
+}
+
+    .review-card:hover {
+        border-color: var(--df-border-gold) !important;
+    }
+
+/* --------------------------------------------------------------------------
+   6. CTA & Final Banner
+   -------------------------------------------------------------------------- */
+.cta-banner-glass {
+    box-shadow: var(--df-shadow-dark);
+}
+
+.font-heading {
+    font-family: var(--df-font-heading);
+}
+
+/* --------------------------------------------------------------------------
+   7. Responsive Breakpoints
+   -------------------------------------------------------------------------- */
+@media (max-width: 991.98px) {
+    .hero-title {
+        font-size: 2.5rem;
+    }
+
+    .branch-img-wrapper {
+        height: 280px;
+    }
+
+    .map-frame {
+        height: 260px;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .hero-title {
+        font-size: 1.9rem;
+    }
+
+    .hero-description {
+        font-size: 0.92rem;
+    }
+
+    .section-title {
+        font-size: 1.7rem;
+    }
+
+    .branch-card-title {
+        font-size: 1.6rem;
+    }
+
+    .branch-img-wrapper {
+        height: 220px;
+    }
+}

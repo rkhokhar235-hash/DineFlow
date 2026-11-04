@@ -1,0 +1,909 @@
+﻿/* ==========================================================================
+   DINEFLOW LUXURY HOME PAGE STYLESHEET
+   Design Language: Obsidian Canvas, Metallic Gold Accents, Glassmorphism
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Shared Page Utilities & Section Layouts
+   -------------------------------------------------------------------------- */
+.bg-dark-surface {
+    background: linear-gradient(180deg, var(--df-card-white) 0%, var(--df-surface-warm) 100%);
+}
+
+.bg-dark-canvas {
+    background: linear-gradient(180deg, var(--df-surface-cream) 0%, var(--df-section-gray) 100%);
+}
+
+.section-padding {
+    padding: 110px 0;
+}
+
+.sub-title {
+    color: var(--df-primary);
+    font-size: 0.8rem;
+    letter-spacing: 3px;
+    font-weight: 600;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 12px;
+}
+
+.section-title {
+    font-size: clamp(2.2rem, 4vw, 3.2rem);
+    font-weight: 700;
+    color: var(--df-text-main);
+    letter-spacing: -0.04em;
+}
+
+.title-divider {
+    width: 72px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--df-primary), var(--df-primary-accent));
+    margin-top: 18px;
+    border-radius: 999px;
+}
+
+.link-gold {
+    color: var(--df-primary);
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    transition: transform var(--df-transition-fast), color var(--df-transition-fast);
+}
+
+    .link-gold:hover {
+        color: var(--df-primary-accent);
+        transform: translateX(5px);
+    }
+
+.text-gold {
+    color: var(--df-primary) !important;
+}
+
+/* Secondary Button Variant */
+.btn-df-outline {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 28px;
+    background: rgba(255, 255, 255, 0.85);
+    color: var(--df-text-main) !important;
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    border-radius: 50px;
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    transition: all var(--df-transition-fast);
+    cursor: pointer;
+    box-shadow: 0 12px 26px rgba(17, 17, 17, 0.04);
+}
+
+    .btn-df-outline:hover {
+        background: rgba(212, 175, 55, 0.08);
+        border-color: var(--df-primary);
+        color: var(--df-primary) !important;
+        transform: translateY(-3px);
+    }
+
+/* --------------------------------------------------------------------------
+   2. Fullscreen Hero Banner
+   -------------------------------------------------------------------------- */
+.hero-section {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    margin-top: -100px;
+    background: linear-gradient(90deg, rgba(247, 245, 239, 0.82) 0%, rgba(255, 255, 255, 0.1) 100%);
+}
+
+.hero-bg-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    border: 1px solid rgba(212, 175, 55, 0.28);
+    box-shadow: 0 10px 20px rgba(17, 17, 17, 0.05);
+    object-fit: cover;
+    object-position: center;
+    z-index: 1;
+    filter: brightness(0.72) contrast(1.06) saturate(1.08);
+    transition: transform 10s ease-out;
+}
+
+.hero-bg-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, rgba(17, 17, 17, 0.7) 0%, rgba(17, 17, 17, 0.25) 42%, rgba(17, 17, 17, 0.52) 100%), radial-gradient(circle at 20% 30%, rgba(212, 175, 55, 0.12), transparent 30%);
+    z-index: 2;
+}
+
+.hero-container {
+    position: relative;
+    z-index: 3;
+}
+
+.hero-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 8px 18px;
+    border-radius: 30px;
+    background: rgba(212, 175, 55, 0.15);
+    border: 1px solid var(--df-border-gold);
+    color: var(--df-primary);
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    font-weight: 600;
+    margin-bottom: 25px;
+    backdrop-filter: blur(10px);
+}
+
+.hero-title {
+    font-size: 3.8rem;
+    font-weight: 700;
+    line-height: 1.15;
+    color: #FFFFFF;
+    margin-bottom: 20px;
+    text-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.hero-description {
+    font-size: 1.15rem;
+    color: rgba(245, 245, 245, 0.85);
+    max-width: 650px;
+    margin-bottom: 35px;
+    font-weight: 300;
+}
+
+.hero-actions {
+    display: flex;
+    gap: 18px;
+    flex-wrap: wrap;
+}
+
+.hero-scroll-indicator {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.scroll-text {
+    font-size: 0.7rem;
+    letter-spacing: 3px;
+    color: var(--df-text-muted);
+}
+
+.scroll-line {
+    width: 1px;
+    height: 40px;
+    background: linear-gradient(180deg, var(--df-primary), transparent);
+    animation: scrollPulse 2s infinite ease-in-out;
+}
+
+@keyframes scrollPulse {
+    0% {
+        transform: scaleY(0);
+        transform-origin: top;
+    }
+
+    50% {
+        transform: scaleY(1);
+        transform-origin: top;
+    }
+
+    51% {
+        transform: scaleY(1);
+        transform-origin: bottom;
+    }
+
+    100% {
+        transform: scaleY(0);
+        transform-origin: bottom;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   3. Featured Categories
+   -------------------------------------------------------------------------- */
+.category-card {
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    group: hover;
+}
+
+.category-img-wrap {
+    position: relative;
+    width: 100%;
+    padding-top: 120%;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid var(--df-border-subtle);
+    margin-bottom: 15px;
+    transition: border-color var(--df-transition-fast), transform var(--df-transition-fast);
+}
+
+    .category-img-wrap img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform var(--df-transition-smooth);
+    }
+
+.category-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, transparent 50%, rgba(0, 0, 0, 0.8) 100%);
+}
+
+.category-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--df-text-main);
+    transition: color var(--df-transition-fast);
+}
+
+.category-card:hover .category-img-wrap {
+    border-color: var(--df-primary);
+    transform: translateY(-5px);
+}
+
+    .category-card:hover .category-img-wrap img {
+        transform: scale(1.1);
+    }
+
+.category-card:hover .category-title {
+    color: var(--df-primary);
+}
+
+/* --------------------------------------------------------------------------
+   4. Signature Dishes
+   -------------------------------------------------------------------------- */
+.dish-card {
+    background: var(--df-card-bg);
+    border: 1px solid var(--df-border-subtle);
+    border-radius: 20px;
+    overflow: hidden;
+    transition: all var(--df-transition-smooth);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+    .dish-card:hover {
+        border-color: var(--df-border-gold);
+        transform: translateY(-8px);
+        box-shadow: var(--df-shadow-dark);
+    }
+
+.dish-img-wrap {
+    position: relative;
+    width: 100%;
+    height: 240px;
+    overflow: hidden;
+}
+
+    .dish-img-wrap img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform var(--df-transition-smooth);
+    }
+
+.dish-card:hover .dish-img-wrap img {
+    transform: scale(1.08);
+}
+
+.dish-badge {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: rgba(13, 13, 13, 0.85);
+    border: 1px solid var(--df-border-gold);
+    color: var(--df-primary);
+    font-size: 0.75rem;
+    padding: 4px 12px;
+    border-radius: 20px;
+    backdrop-filter: blur(8px);
+    font-weight: 500;
+}
+
+.dish-content {
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.dish-title {
+    font-size: 1.35rem;
+    margin-bottom: 0;
+}
+
+.dish-price {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--df-primary);
+    font-family: var(--df-font-heading);
+}
+
+.dish-desc {
+    color: var(--df-text-muted);
+    font-size: 0.9rem;
+    margin-top: 10px;
+    line-height: 1.5;
+}
+
+.dish-footer {
+    border-top: 1px solid var(--df-border-subtle);
+    margin-top: auto;
+}
+
+.dietary-tag {
+    font-size: 0.8rem;
+    color: var(--df-text-muted);
+}
+
+.btn-quick-add {
+    font-size: 0.85rem;
+    color: var(--df-primary);
+    font-weight: 600;
+    padding: 6px 14px;
+    border-radius: 20px;
+    border: 1px solid var(--df-border-gold);
+    background: transparent;
+    transition: all var(--df-transition-fast);
+}
+
+    .btn-quick-add:hover {
+        background: var(--df-primary);
+        color: #000;
+    }
+
+/* --------------------------------------------------------------------------
+   5. Restaurant Story
+   -------------------------------------------------------------------------- */
+.story-img-grid {
+    position: relative;
+    padding-bottom: 50px;
+    padding-right: 50px;
+}
+
+.img-box-main {
+    border-radius: 24px;
+    overflow: hidden;
+    border: 1px solid var(--df-border-subtle);
+    box-shadow: var(--df-shadow-dark);
+}
+
+    .img-box-main img {
+        width: 100%;
+        height: 480px;
+        object-fit: cover;
+    }
+
+.img-box-sub {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 220px;
+    height: 220px;
+    border-radius: 20px;
+    overflow: hidden;
+    border: 4px solid var(--df-surface-dark);
+    box-shadow: var(--df-shadow-dark);
+}
+
+    .img-box-sub img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+.experience-badge {
+    position: absolute;
+    top: 30px;
+    left: -20px;
+    background: var(--df-card-glass);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--df-border-gold);
+    padding: 18px 24px;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: var(--df-shadow-dark);
+}
+
+    .experience-badge .number {
+        font-family: var(--df-font-heading);
+        font-size: 2.2rem;
+        font-weight: 700;
+        color: var(--df-primary);
+        line-height: 1;
+    }
+
+    .experience-badge .label {
+        font-size: 0.75rem;
+        color: var(--df-text-muted);
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        margin-top: 4px;
+    }
+
+.story-text {
+    color: var(--df-text-muted);
+    font-size: 1rem;
+    line-height: 1.7;
+    margin-bottom: 15px;
+}
+
+.feature-icon {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: rgba(212, 175, 55, 0.1);
+    border: 1px solid var(--df-border-gold);
+    color: var(--df-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+}
+
+/* --------------------------------------------------------------------------
+   6. Feature Cards (Why Choose DineFlow)
+   -------------------------------------------------------------------------- */
+.feature-card {
+    background: var(--df-card-bg);
+    border: 1px solid var(--df-border-subtle);
+    border-radius: 20px;
+    padding: 35px 25px;
+    text-align: center;
+    transition: all var(--df-transition-smooth);
+    height: 100%;
+}
+
+    .feature-card:hover {
+        border-color: var(--df-border-gold);
+        transform: translateY(-8px);
+        background: linear-gradient(180deg, var(--df-card-bg) 0%, rgba(212, 175, 55, 0.05) 100%);
+    }
+
+.card-icon {
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    background: rgba(212, 175, 55, 0.1);
+    border: 1px solid var(--df-border-gold);
+    color: var(--df-primary);
+    font-size: 1.6rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px auto;
+}
+
+.card-title {
+    font-size: 1.25rem;
+    margin-bottom: 12px;
+}
+
+.card-desc {
+    color: var(--df-text-muted);
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+/* --------------------------------------------------------------------------
+   7. Process Steps (3-Step QR Ordering)
+   -------------------------------------------------------------------------- */
+.process-step-card {
+    position: relative;
+    padding: 20px;
+}
+
+.step-number {
+    font-family: var(--df-font-heading);
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: rgba(212, 175, 55, 0.15);
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+}
+
+.step-img-wrap {
+    position: relative;
+    z-index: 2;
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid var(--df-border-gold);
+    box-shadow: var(--df-shadow-gold);
+}
+
+    .step-img-wrap img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+.step-title {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+}
+
+.step-desc {
+    color: var(--df-text-muted);
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+/* --------------------------------------------------------------------------
+   8. Today's Special Offers
+   -------------------------------------------------------------------------- */
+.offer-banner-glass {
+    background: linear-gradient(135deg, rgba(24, 24, 24, 0.95), rgba(17, 17, 17, 0.98));
+    border: 1px solid var(--df-border-gold);
+    border-radius: 24px;
+    box-shadow: var(--df-shadow-dark);
+}
+
+.offer-badge {
+    display: inline-block;
+    background: rgba(212, 175, 55, 0.15);
+    color: var(--df-primary);
+    font-size: 0.8rem;
+    padding: 6px 14px;
+    border-radius: 20px;
+    border: 1px solid var(--df-border-gold);
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.offer-title {
+    font-size: 2.2rem;
+}
+
+.offer-desc {
+    color: var(--df-text-muted);
+    font-size: 1rem;
+}
+
+.price-current {
+    font-family: var(--df-font-heading);
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--df-primary);
+}
+
+.price-old {
+    font-size: 1.4rem;
+    color: var(--df-text-muted);
+    text-decoration: line-through;
+}
+
+.price-note {
+    font-size: 0.8rem;
+    color: var(--df-text-muted);
+    font-style: italic;
+}
+
+.offer-img-frame img {
+    border: 1px solid var(--df-border-gold);
+    box-shadow: var(--df-shadow-dark);
+}
+
+/* --------------------------------------------------------------------------
+   9. Meet Our Chefs
+   -------------------------------------------------------------------------- */
+.chef-card {
+    background: var(--df-card-bg);
+    border: 1px solid var(--df-border-subtle);
+    border-radius: 20px;
+    overflow: hidden;
+    transition: all var(--df-transition-smooth);
+}
+
+    .chef-card:hover {
+        border-color: var(--df-border-gold);
+        transform: translateY(-8px);
+    }
+
+.chef-img-wrap {
+    width: 100%;
+    height: 320px;
+    overflow: hidden;
+}
+
+    .chef-img-wrap img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform var(--df-transition-smooth);
+    }
+
+.chef-card:hover .chef-img-wrap img {
+    transform: scale(1.05);
+}
+
+.chef-info {
+    padding: 25px;
+    text-align: center;
+}
+
+.chef-name {
+    font-size: 1.3rem;
+    margin-bottom: 2px;
+}
+
+.chef-role {
+    color: var(--df-primary);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: block;
+    margin-bottom: 12px;
+}
+
+.chef-bio {
+    color: var(--df-text-muted);
+    font-size: 0.88rem;
+}
+
+/* --------------------------------------------------------------------------
+   10. Restaurant Statistics
+   -------------------------------------------------------------------------- */
+.stat-card {
+    padding: 20px;
+}
+
+.stat-number {
+    font-family: var(--df-font-heading);
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--df-primary);
+    margin-bottom: 5px;
+}
+
+.stat-label {
+    color: var(--df-text-muted);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 0;
+}
+
+/* --------------------------------------------------------------------------
+   11. Customer Testimonials
+   -------------------------------------------------------------------------- */
+.testimonial-card {
+    background: var(--df-card-bg);
+    border: 1px solid var(--df-border-subtle);
+    border-radius: 20px;
+    padding: 35px 30px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: all var(--df-transition-fast);
+}
+
+    .testimonial-card:hover {
+        border-color: var(--df-border-gold);
+    }
+
+.rating-stars {
+    color: var(--df-primary);
+    font-size: 0.9rem;
+}
+
+.testimonial-quote {
+    color: var(--df-text-main);
+    font-size: 0.98rem;
+    font-style: italic;
+    line-height: 1.6;
+}
+
+.user-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1px solid var(--df-border-gold);
+}
+
+.user-name {
+    font-size: 1rem;
+}
+
+/* --------------------------------------------------------------------------
+   12. Gallery Preview
+   -------------------------------------------------------------------------- */
+.gallery-preview-item {
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden;
+    height: 280px;
+    border: 1px solid var(--df-border-subtle);
+    cursor: pointer;
+}
+
+    .gallery-preview-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform var(--df-transition-smooth);
+    }
+
+.gallery-hover-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(13, 13, 13, 0.6);
+    backdrop-filter: blur(4px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--df-primary);
+    font-size: 1.8rem;
+    opacity: 0;
+    transition: opacity var(--df-transition-fast);
+}
+
+.gallery-preview-item:hover img {
+    transform: scale(1.1);
+}
+
+.gallery-preview-item:hover .gallery-hover-overlay {
+    opacity: 1;
+}
+
+/* --------------------------------------------------------------------------
+   13. Reservation CTA Box
+   -------------------------------------------------------------------------- */
+.reservation-box-glass {
+    background: linear-gradient(135deg, rgba(24, 24, 24, 0.9), rgba(17, 17, 17, 0.95));
+    border: 1px solid var(--df-border-gold);
+    border-radius: 24px;
+    box-shadow: var(--df-shadow-dark);
+}
+
+/* --------------------------------------------------------------------------
+   14. Location & Map Preview
+   -------------------------------------------------------------------------- */
+.location-info-list li {
+    color: var(--df-text-main);
+    font-size: 0.95rem;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.map-frame-wrap img {
+    border: 1px solid var(--df-border-gold);
+}
+
+/* --------------------------------------------------------------------------
+   15. Blog Preview
+   -------------------------------------------------------------------------- */
+.blog-preview-card {
+    background: var(--df-card-bg);
+    border: 1px solid var(--df-border-subtle);
+    border-radius: 20px;
+    overflow: hidden;
+    transition: all var(--df-transition-smooth);
+}
+
+    .blog-preview-card:hover {
+        border-color: var(--df-border-gold);
+        transform: translateY(-5px);
+    }
+
+.blog-img-wrap {
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+}
+
+    .blog-img-wrap img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+.blog-date {
+    position: absolute;
+    bottom: 12px;
+    left: 12px;
+    background: rgba(13, 13, 13, 0.85);
+    color: var(--df-primary);
+    font-size: 0.75rem;
+    padding: 4px 10px;
+    border-radius: 12px;
+    border: 1px solid var(--df-border-gold);
+}
+
+.blog-content {
+    padding: 20px;
+}
+
+.blog-title {
+    font-size: 1.1rem;
+    line-height: 1.4;
+    margin-bottom: 8px;
+}
+
+.blog-excerpt {
+    color: var(--df-text-muted);
+    font-size: 0.88rem;
+    margin-bottom: 0;
+}
+
+/* --------------------------------------------------------------------------
+   16. Final CTA
+   -------------------------------------------------------------------------- */
+.final-cta-section {
+    background: radial-gradient(circle at center, rgba(212, 175, 55, 0.1) 0%, var(--df-bg-dark) 70%);
+    border-top: 1px solid var(--df-border-subtle);
+}
+
+.cta-heading {
+    font-size: 2.8rem;
+}
+
+.cta-text {
+    color: var(--df-text-muted);
+    font-size: 1.05rem;
+}
+
+/* --------------------------------------------------------------------------
+   17. Responsive Rules
+   -------------------------------------------------------------------------- */
+@media (max-width: 991.98px) {
+    .hero-title {
+        font-size: 2.8rem;
+    }
+
+    .story-img-grid {
+        padding-right: 0;
+        padding-bottom: 0;
+    }
+
+    .img-box-sub {
+        display: none;
+    }
+
+    .cta-heading {
+        font-size: 2.2rem;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .hero-title {
+        font-size: 2.1rem;
+    }
+
+    .hero-description {
+        font-size: 0.95rem;
+    }
+
+    .section-title {
+        font-size: 1.8rem;
+    }
+
+    .price-current {
+        font-size: 2rem;
+    }
+}

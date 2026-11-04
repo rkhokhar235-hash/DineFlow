@@ -1,0 +1,342 @@
+﻿/* ==========================================================================
+   DINEFLOW LUXURY FAQ PAGE STYLESHEET
+   Design Language: Obsidian Canvas, Metallic Gold Accents, Glassmorphism
+   Location: Rajkot, Gujarat
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Shared Page Utilities & Base Layouts
+   -------------------------------------------------------------------------- */
+.bg-dark-surface {
+    background-color: var(--df-surface-light);
+}
+
+.bg-dark-canvas {
+    background-color: var(--df-surface-cream);
+}
+
+.section-padding {
+    padding: 85px 0;
+}
+
+.sub-title {
+    color: var(--df-primary);
+    font-size: 0.85rem;
+    letter-spacing: 3px;
+    font-weight: 600;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.section-title {
+    font-size: 2.3rem;
+    font-weight: 700;
+    color: var(--df-text-main);
+}
+
+.title-divider {
+    width: 60px;
+    height: 2px;
+    background: var(--df-primary);
+    margin-top: 15px;
+}
+
+.text-gold {
+    color: var(--df-primary) !important;
+}
+
+.text-main {
+    color: var(--df-text-main) !important;
+}
+
+.border-gold-subtle {
+    border: 1px solid var(--df-border-gold);
+}
+
+.border-subtle {
+    border: 1px solid var(--df-border-subtle);
+}
+
+.border-top-subtle {
+    border-top: 1px solid var(--df-border-subtle);
+}
+
+.border-bottom-subtle {
+    border-bottom: 1px solid var(--df-border-subtle);
+}
+
+.fs-7 {
+    font-size: 0.82rem !important;
+}
+
+.max-w-700 {
+    max-width: 700px;
+}
+
+.faq-text {
+    color: var(--df-text-muted);
+    font-size: 1rem;
+    line-height: 1.7;
+    margin-bottom: 15px;
+}
+
+.feature-icon-sm {
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: rgba(212, 175, 55, 0.15);
+    border: 1px solid var(--df-border-gold);
+    color: var(--df-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    background: rgba(255, 255, 255, 0.82);
+}
+
+.btn-df-outline {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(212, 175, 55, 0.28);
+    box-shadow: 0 10px 20px rgba(17, 17, 17, 0.05);
+    background: transparent;
+    color: var(--df-text-main) !important;
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+        background: #FFFFFF;
+    border-radius: 50px;
+    border: 1px solid var(--df-border-gold);
+        transform: translateY(-2px);
+        box-shadow: 0 14px 24px rgba(17, 17, 17, 0.08);
+    cursor: pointer;
+    text-decoration: none;
+}
+
+    .btn-df-outline:hover {
+        background: rgba(212, 175, 55, 0.1);
+        border-color: var(--df-primary);
+        color: var(--df-primary) !important;
+        transform: translateY(-3px);
+    }
+
+    .btn-df-outline.btn-md {
+        padding: 10px 24px;
+        font-size: 0.88rem;
+    }
+
+/* --------------------------------------------------------------------------
+   2. Luxury Hero Banner
+   -------------------------------------------------------------------------- */
+.faq-hero-section {
+    position: relative;
+    min-height: 50vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    margin-top: -100px;
+    padding-top: 140px;
+    padding-bottom: 60px;
+}
+
+.faq-hero-bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    z-index: 1;
+    filter: brightness(0.4) contrast(1.15);
+    transform: scale(1.05);
+}
+
+.faq-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(13, 13, 13, 0.8) 0%, rgba(13, 13, 13, 0.5) 50%, rgba(13, 13, 13, 0.95) 100%);
+    z-index: 2;
+}
+
+.faq-hero-container {
+    position: relative;
+    z-index: 3;
+}
+
+.hero-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 6px 16px;
+    border-radius: 30px;
+    background: rgba(212, 175, 55, 0.15);
+    border: 1px solid var(--df-border-gold);
+    color: var(--df-primary);
+    font-size: 0.78rem;
+    letter-spacing: 2px;
+    font-weight: 600;
+    margin-bottom: 18px;
+    backdrop-filter: blur(10px);
+}
+
+.hero-title {
+    font-size: 3.2rem;
+    font-weight: 700;
+    line-height: 1.15;
+    color: #FFFFFF;
+    margin-bottom: 15px;
+    text-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.hero-description {
+    font-size: 1.05rem;
+    color: rgba(245, 245, 245, 0.85);
+    max-width: 720px;
+    font-weight: 300;
+    line-height: 1.65;
+}
+
+/* --------------------------------------------------------------------------
+   3. Sticky Search & Filter Bar
+   -------------------------------------------------------------------------- */
+.sticky-faq-bar {
+    position: sticky;
+    top: 65px;
+    z-index: 999;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    background-color: rgba(13, 13, 13, 0.95);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+}
+
+.faq-search-box {
+    max-width: 650px;
+    margin: 0 auto;
+}
+
+.search-icon {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1rem;
+    z-index: 2;
+}
+
+.search-input-df {
+    padding-left: 52px !important;
+    padding-right: 45px !important;
+    border-radius: 30px !important;
+}
+
+.btn-clear-search {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    color: var(--df-text-muted);
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+    .btn-clear-search:hover {
+        color: var(--df-primary);
+    }
+
+.faq-category-btn {
+    background: transparent;
+    color: var(--df-text-muted);
+    border: 1px solid var(--df-border-subtle);
+    padding: 8px 18px;
+    border-radius: 30px;
+    font-size: 0.82rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    display: inline-flex;
+    align-items: center;
+}
+
+    .faq-category-btn:hover,
+    .faq-category-btn.active {
+        color: #000 !important;
+        background: linear-gradient(135deg, var(--df-primary), var(--df-primary-accent));
+        border-color: var(--df-primary);
+        font-weight: 600;
+        box-shadow: 0 4px 15px rgba(212, 175, 55, 0.25);
+    }
+
+/* --------------------------------------------------------------------------
+   4. Accordion Styling
+   -------------------------------------------------------------------------- */
+.df-accordion .accordion-button {
+    box-shadow: none;
+    padding: 18px 24px;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: color var(--df-transition-fast);
+}
+
+    .df-accordion .accordion-button:not(.collapsed) {
+        color: var(--df-primary);
+    }
+
+    .df-accordion .accordion-button::after {
+        filter: invert(0.8) sepia(1) saturate(5) hue-rotate(5deg);
+    }
+
+.df-accordion .accordion-body {
+    padding: 20px 24px;
+    line-height: 1.65;
+}
+
+.faq-facility-card {
+    transition: transform var(--df-transition-smooth), border-color var(--df-transition-smooth);
+}
+
+    .faq-facility-card:hover {
+        transform: translateY(-5px);
+        border-color: var(--df-border-gold) !important;
+    }
+
+/* --------------------------------------------------------------------------
+   5. CTA & Final Banner
+   -------------------------------------------------------------------------- */
+.cta-banner-glass {
+    box-shadow: var(--df-shadow-dark);
+}
+
+.font-heading {
+    font-family: var(--df-font-heading);
+}
+
+/* --------------------------------------------------------------------------
+   6. Responsive Breakpoints
+   -------------------------------------------------------------------------- */
+@media (max-width: 991.98px) {
+    .hero-title {
+        font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .hero-title {
+        font-size: 1.9rem;
+    }
+
+    .hero-description {
+        font-size: 0.92rem;
+    }
+
+    .section-title {
+        font-size: 1.7rem;
+    }
+
+    .df-accordion .accordion-button {
+        font-size: 0.92rem;
+        padding: 14px 16px;
+    }
+}

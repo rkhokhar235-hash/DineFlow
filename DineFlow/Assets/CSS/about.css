@@ -1,0 +1,757 @@
+﻿/* ==========================================================================
+   DINEFLOW LUXURY ABOUT PAGE STYLESHEET
+   Design Language: Obsidian Canvas, Metallic Gold Accents, Glassmorphism
+   Location: Rajkot, Gujarat
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Shared Page Utilities & Base Layouts
+   -------------------------------------------------------------------------- */
+.bg-dark-surface {
+    background: linear-gradient(180deg, var(--df-card-white) 0%, var(--df-surface-warm) 100%);
+}
+
+.bg-dark-canvas {
+    background: linear-gradient(180deg, var(--df-surface-cream) 0%, var(--df-section-gray) 100%);
+}
+
+.section-padding {
+    padding: 110px 0;
+}
+
+.sub-title {
+    color: var(--df-primary);
+    font-size: 0.8rem;
+    letter-spacing: 3px;
+    font-weight: 600;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 12px;
+}
+
+.section-title {
+    font-size: clamp(2.2rem, 4vw, 3.2rem);
+    font-weight: 700;
+    color: var(--df-text-main);
+    letter-spacing: -0.04em;
+}
+
+.title-divider {
+    width: 72px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--df-primary), var(--df-primary-accent));
+    margin-top: 18px;
+    border-radius: 999px;
+}
+
+.text-gold {
+    color: var(--df-primary) !important;
+}
+
+.text-main {
+    color: var(--df-text-main) !important;
+}
+
+.border-gold-subtle {
+    border: 1px solid var(--df-border-gold);
+}
+
+.border-top-bottom {
+    border-top: 1px solid var(--df-border-subtle);
+    border-bottom: 1px solid var(--df-border-subtle);
+}
+
+/* The About hero sits beneath a transparent header so its restaurant image is visible from the first viewport. */
+body.about-page .df-header.about-transparent {
+    background-color: transparent;
+    border-bottom-color: transparent;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+}
+
+body.about-page .df-header.about-transparent:not(.scrolled) .brand-text,
+body.about-page .df-header.about-transparent:not(.scrolled) .df-link,
+body.about-page .df-header.about-transparent:not(.scrolled) .btn-icon-search,
+body.about-page .df-header.about-transparent:not(.scrolled) .hamburger-inner,
+body.about-page .df-header.about-transparent:not(.scrolled) .hamburger-inner::before,
+body.about-page .df-header.about-transparent:not(.scrolled) .hamburger-inner::after {
+    color: #FFFFFF !important;
+}
+
+body.about-page .df-header.about-transparent:not(.scrolled) .hamburger-inner,
+body.about-page .df-header.about-transparent:not(.scrolled) .hamburger-inner::before,
+body.about-page .df-header.about-transparent:not(.scrolled) .hamburger-inner::after {
+    background-color: #FFFFFF !important;
+}
+
+body.about-page .df-header.about-transparent:not(.scrolled) .btn-icon-search {
+    border-color: rgba(255, 255, 255, 0.36);
+}
+
+body.about-page .main-content-wrap {
+    padding-top: 100px;
+}
+
+/* Secondary Button Variant */
+.btn-df-outline {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 28px;
+    background: rgba(255, 255, 255, 0.85);
+    color: var(--df-text-main) !important;
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    border-radius: 50px;
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    transition: all var(--df-transition-fast);
+    cursor: pointer;
+    box-shadow: 0 12px 26px rgba(17, 17, 17, 0.04);
+}
+
+    .btn-df-outline:hover {
+        background: rgba(212, 175, 55, 0.08);
+        border-color: var(--df-primary);
+        color: var(--df-primary) !important;
+        transform: translateY(-3px);
+    }
+
+/* Feature Icon Small */
+.feature-icon-sm {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: rgba(212, 175, 55, 0.15);
+    border: 1px solid var(--df-border-gold);
+    color: var(--df-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    background: rgba(255, 255, 255, 0.82);
+}
+
+/* --------------------------------------------------------------------------
+   2. Premium Hero Banner
+   -------------------------------------------------------------------------- */
+.about-hero-section {
+    position: relative;
+    border: 1px solid rgba(212, 175, 55, 0.28);
+    box-shadow: 0 10px 20px rgba(17, 17, 17, 0.05);
+    min-height: 65vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    background: linear-gradient(90deg, rgba(247, 245, 239, 0.82) 0%, rgba(255, 255, 255, 0.1) 100%);
+    padding-top: 140px;
+    padding-bottom: 80px;
+    margin-top: -100px;
+}
+
+.about-hero-bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    z-index: 1;
+    filter: brightness(0.72) contrast(1.06) saturate(1.08);
+    transform: scale(1.05);
+}
+
+.about-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, rgba(17, 17, 17, 0.7) 0%, rgba(17, 17, 17, 0.25) 42%, rgba(17, 17, 17, 0.52) 100%), radial-gradient(circle at 20% 30%, rgba(212, 175, 55, 0.12), transparent 30%);
+    z-index: 2;
+}
+
+.about-hero-container {
+    position: relative;
+    z-index: 3;
+}
+
+.hero-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 8px 18px;
+    border-radius: 30px;
+    background: rgba(212, 175, 55, 0.15);
+    border: 1px solid var(--df-border-gold);
+    color: var(--df-primary);
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    font-weight: 600;
+    margin-bottom: 25px;
+    backdrop-filter: blur(10px);
+}
+
+.hero-title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    line-height: 1.18;
+    color: #FFFFFF;
+    margin-bottom: 20px;
+    text-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.hero-description {
+    font-size: 1.15rem;
+    color: rgba(245, 245, 245, 0.85);
+    max-width: 720px;
+    font-weight: 300;
+    line-height: 1.7;
+}
+
+/* --------------------------------------------------------------------------
+   3. Welcome to DineFlow
+   -------------------------------------------------------------------------- */
+.about-img-wrap {
+    position: relative;
+    border-radius: 24px;
+}
+
+    .about-img-wrap img {
+        border: 1px solid var(--df-border-subtle);
+        box-shadow: var(--df-shadow-dark);
+    }
+
+.glass-experience-card {
+    position: absolute;
+    bottom: -25px;
+    right: -20px;
+    background: var(--df-card-glass);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid var(--df-border-gold);
+    border-radius: 20px;
+    padding: 20px 30px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: var(--df-shadow-dark);
+}
+
+.exp-number {
+    font-family: var(--df-font-heading);
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--df-primary);
+    line-height: 1;
+}
+
+.exp-text {
+    font-size: 0.8rem;
+    color: var(--df-text-muted);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-top: 4px;
+}
+
+.about-text {
+    color: var(--df-text-muted);
+    font-size: 1rem;
+    line-height: 1.7;
+    margin-bottom: 15px;
+}
+
+/* --------------------------------------------------------------------------
+   4. Our Story & Journey (Timeline)
+   -------------------------------------------------------------------------- */
+.timeline-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+.timeline-line {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 2px;
+    background: linear-gradient(180deg, transparent 0%, var(--df-primary) 15%, var(--df-primary) 85%, transparent 100%);
+    transform: translateX(-50%);
+}
+
+.timeline-item {
+    position: relative;
+    width: 50%;
+    padding: 20px 40px;
+    box-sizing: border-box;
+}
+
+    .timeline-item.left {
+        left: 0;
+        text-align: right;
+    }
+
+    .timeline-item.right {
+        left: 50%;
+        text-align: left;
+    }
+
+    .timeline-item::after {
+        content: '';
+        position: absolute;
+        width: 16px;
+        height: 16px;
+        background: var(--df-bg-dark);
+        border: 3px solid var(--df-primary);
+        border-radius: 50%;
+        top: 35px;
+        z-index: 2;
+        box-shadow: 0 0 10px var(--df-primary);
+    }
+
+    .timeline-item.left::after {
+        right: -8px;
+    }
+
+    .timeline-item.right::after {
+        left: -8px;
+    }
+
+.timeline-content-card {
+    background: var(--df-card-bg);
+    border: 1px solid var(--df-border-subtle);
+    border-radius: 18px;
+    padding: 28px;
+    transition: all var(--df-transition-smooth);
+}
+
+    .timeline-content-card:hover {
+        border-color: var(--df-border-gold);
+        transform: translateY(-5px);
+        box-shadow: var(--df-shadow-dark);
+    }
+
+.timeline-year {
+    font-family: var(--df-font-heading);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--df-primary);
+    display: block;
+    margin-bottom: 5px;
+}
+
+.timeline-title {
+    font-size: 1.25rem;
+    margin-bottom: 10px;
+    color: var(--df-text-main);
+}
+
+.timeline-desc {
+    color: var(--df-text-muted);
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin-bottom: 0;
+}
+
+/* --------------------------------------------------------------------------
+   5. Mission & Vision
+   -------------------------------------------------------------------------- */
+.mission-card {
+    background: linear-gradient(135deg, rgba(24, 24, 24, 0.95), rgba(17, 17, 17, 0.98));
+    border: 1px solid var(--df-border-gold);
+    border-radius: 24px;
+    padding: 45px 35px;
+    transition: transform var(--df-transition-smooth);
+}
+
+    .mission-card:hover {
+        transform: translateY(-8px);
+        box-shadow: var(--df-shadow-dark);
+    }
+
+.card-icon-lg {
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    background: rgba(212, 175, 55, 0.12);
+    border: 1px solid var(--df-border-gold);
+    color: var(--df-primary);
+    font-size: 1.6rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 25px;
+}
+
+.card-heading {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    color: var(--df-text-main);
+}
+
+.card-text {
+    color: var(--df-text-muted);
+    font-size: 1rem;
+    line-height: 1.7;
+    margin-bottom: 0;
+}
+
+/* --------------------------------------------------------------------------
+   6. Why Choose DineFlow (4 Column Grid)
+   -------------------------------------------------------------------------- */
+.value-card {
+    background: var(--df-card-bg);
+    border: 1px solid var(--df-border-subtle);
+    border-radius: 20px;
+    padding: 35px 25px;
+    height: 100%;
+    transition: all var(--df-transition-smooth);
+}
+
+    .value-card:hover {
+        border-color: var(--df-border-gold);
+        transform: translateY(-8px);
+        background: linear-gradient(180deg, var(--df-card-bg) 0%, rgba(212, 175, 55, 0.05) 100%);
+    }
+
+.value-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: rgba(212, 175, 55, 0.1);
+    border: 1px solid var(--df-border-gold);
+    color: var(--df-primary);
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px auto;
+}
+
+.value-title {
+    font-size: 1.2rem;
+    margin-bottom: 12px;
+}
+
+.value-desc {
+    color: var(--df-text-muted);
+    font-size: 0.88rem;
+    line-height: 1.6;
+}
+
+/* --------------------------------------------------------------------------
+   7. Premium Experience Banner
+   -------------------------------------------------------------------------- */
+.experience-banner-section {
+    overflow: hidden;
+}
+
+.experience-banner-bg {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    filter: brightness(0.4) contrast(1.1);
+}
+
+.experience-banner-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(13, 13, 13, 0.85) 0%, rgba(13, 13, 13, 0.6) 50%, rgba(13, 13, 13, 0.85) 100%);
+}
+
+.banner-title {
+    font-size: 2.8rem;
+}
+
+.banner-text {
+    max-width: 680px;
+    font-size: 1.05rem;
+    line-height: 1.7;
+}
+
+/* --------------------------------------------------------------------------
+   8. Hygiene & Fresh Ingredients
+   -------------------------------------------------------------------------- */
+.hygiene-pills .h-pill {
+    background: rgba(212, 175, 55, 0.1);
+    border: 1px solid var(--df-border-gold);
+    color: var(--df-primary);
+    font-size: 0.85rem;
+    padding: 8px 16px;
+    border-radius: 30px;
+    font-weight: 500;
+}
+
+/* --------------------------------------------------------------------------
+   9. Culinary Experts / Chef Cards
+   -------------------------------------------------------------------------- */
+.chef-card {
+    background: var(--df-card-bg);
+    border: 1px solid var(--df-border-subtle);
+    border-radius: 20px;
+    overflow: hidden;
+    transition: all var(--df-transition-smooth);
+}
+
+    .chef-card:hover {
+        border-color: var(--df-border-gold);
+        transform: translateY(-8px);
+    }
+
+.chef-img-box {
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+}
+
+    .chef-img-box img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform var(--df-transition-smooth);
+    }
+
+.chef-card:hover .chef-img-box img {
+    transform: scale(1.06);
+}
+
+.chef-name {
+    font-size: 1.3rem;
+    margin-bottom: 2px;
+}
+
+.chef-role {
+    color: var(--df-primary);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: block;
+    margin-bottom: 12px;
+}
+
+.chef-bio {
+    color: var(--df-text-muted);
+    font-size: 0.88rem;
+    line-height: 1.6;
+}
+
+/* --------------------------------------------------------------------------
+   10. Statistics Banner
+   -------------------------------------------------------------------------- */
+.stat-box {
+    padding: 15px;
+}
+
+.stat-num {
+    font-family: var(--df-font-heading);
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--df-primary);
+    margin-bottom: 5px;
+}
+
+.stat-txt {
+    color: var(--df-text-muted);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 0;
+}
+
+/* --------------------------------------------------------------------------
+   11. Testimonials
+   -------------------------------------------------------------------------- */
+.testimonial-glass-card {
+    background: var(--df-card-bg);
+    border: 1px solid var(--df-border-subtle);
+    border-radius: 20px;
+    padding: 35px 30px;
+    display: flex;
+    flex-direction: column;
+    transition: border-color var(--df-transition-fast);
+}
+
+    .testimonial-glass-card:hover {
+        border-color: var(--df-border-gold);
+    }
+
+.stars {
+    color: var(--df-primary);
+    font-size: 0.9rem;
+}
+
+.quote {
+    color: var(--df-text-main);
+    font-size: 0.95rem;
+    font-style: italic;
+    line-height: 1.65;
+}
+
+.avatar-placeholder {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: rgba(212, 175, 55, 0.15);
+    border: 1px solid var(--df-border-gold);
+    color: var(--df-primary);
+    font-weight: 700;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.user-title {
+    font-size: 1rem;
+}
+
+/* --------------------------------------------------------------------------
+   12. Table Booking CTA & Closing
+   -------------------------------------------------------------------------- */
+.cta-box-glass {
+    background: linear-gradient(135deg, rgba(24, 24, 24, 0.95), rgba(17, 17, 17, 0.98));
+    border: 1px solid var(--df-border-gold);
+    border-radius: 24px;
+    box-shadow: var(--df-shadow-dark);
+}
+
+.quote-icon-bg {
+    font-size: 2.5rem;
+    color: var(--df-primary);
+    opacity: 0.4;
+}
+
+.closing-heading {
+    font-size: 1.8rem;
+    font-style: italic;
+    color: var(--df-text-main);
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.5;
+}
+
+.closing-sub {
+    font-size: 1rem;
+    letter-spacing: 1px;
+    font-weight: 500;
+}
+/* Navbar ને Hero Image ની ઉપર Transparent રાખવા માટે */
+.visitor-navbar,
+header.navbar {
+    background-color: transparent !important;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: none !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    transition: background-color 0.3s ease, backdrop-filter 0.3s ease;
+}
+
+/* જો MasterPage માં navbar fixed/relative હોય તો Hero Section ને ટોચ પર ખેંચો */
+.about-hero-section {
+    position: relative;
+    margin-top: -80px; /* તમારી Navbar ની જે height હોય તેટલું negative margin આપો */
+    padding-top: 80px; /* Text કન્ટેન્ટ Navbar ની પાછળ દબાઈ ન જાય તે માટે */
+    min-height: 80vh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+}
+
+/* Hero Background Image પૂરા સેક્શનને કવર કરે તે માટે */
+.about-hero-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+}
+
+.about-hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.7) 0%, rgba(15, 15, 15, 0.9) 100%);
+    z-index: 2;
+}
+
+.about-hero-container {
+    position: relative;
+    z-index: 3;
+}
+
+/* જ્યારે યુઝર નીચે સ્ક્રોલ કરે ત્યારે Navbar ડાર્ક થઈ જાય તે માટે */
+.navbar-scrolled {
+    background-color: rgba(18, 18, 18, 0.95) !important;
+    backdrop-filter: blur(10px);
+    position: fixed !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4) !important;
+}
+/* --------------------------------------------------------------------------
+   13. Responsive Breakpoints
+   -------------------------------------------------------------------------- */
+@media (max-width: 991.98px) {
+    .hero-title {
+        font-size: 2.6rem;
+    }
+
+    .banner-title {
+        font-size: 2.1rem;
+    }
+
+    .glass-experience-card {
+        position: relative;
+        bottom: 0;
+        right: 0;
+        margin-top: 20px;
+    }
+
+    .timeline-line {
+        left: 30px;
+    }
+
+    .timeline-item {
+        width: 100%;
+        padding-left: 70px;
+        padding-right: 15px;
+    }
+
+        .timeline-item.left,
+        .timeline-item.right {
+            left: 0;
+            text-align: left;
+        }
+
+            .timeline-item.left::after,
+            .timeline-item.right::after {
+                left: 22px;
+            }
+}
+
+@media (max-width: 575.98px) {
+    .hero-title {
+        font-size: 2rem;
+    }
+
+    .hero-description {
+        font-size: 0.95rem;
+    }
+
+    .section-title {
+        font-size: 1.8rem;
+    }
+
+    .closing-heading {
+        font-size: 1.3rem;
+    }
+
+    .experience-banner-bg {
+        background-attachment: scroll;
+    }
+}

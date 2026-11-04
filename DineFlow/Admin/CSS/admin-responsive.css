@@ -1,0 +1,83 @@
+﻿/* ==========================================================================
+   DINEFLOW ADMIN RESPONSIVE STYLESHEET
+   Location: Rajkot, Gujarat, India
+   ========================================================================== */
+
+/* 1. Laptop & Tablet Adaptations (Below 1200px) */
+@media (max-width: 1199.98px) {
+    .admin-content-area {
+        padding: 1.25rem;
+    }
+
+    .topbar-search-dropdown .form-control {
+        width: 180px;
+    }
+}
+
+/* 2. Tablet & Smaller Laptops (Below 991.98px) */
+@media (max-width: 991.98px) {
+    .admin-sidebar {
+        transform: translateX(-100%);
+    }
+
+    body.mobile-sidebar-open .admin-sidebar {
+        transform: translateX(0);
+    }
+
+    .admin-main-wrapper {
+        margin-left: 0;
+    }
+
+    .admin-topbar {
+        padding: 0 1.25rem;
+    }
+}
+
+/* 3. Mobile Devices & Small Tablets (Below 767.98px) */
+@media (max-width: 767.98px) {
+    .admin-sidebar {
+        width: var(--admin-sidebar-width) !important;
+    }
+
+    .admin-topbar {
+        padding: 0 1rem;
+    }
+
+    .admin-content-area {
+        padding: 1rem;
+    }
+
+    .notification-menu {
+        width: min(320px, calc(100vw - 2rem));
+    }
+
+    .admin-footer {
+        flex-direction: column;
+        text-align: center;
+        gap: 0.5rem;
+    }
+}
+
+/* 4. Extra Small Devices (Below 575.98px) */
+@media (max-width: 575.98px) {
+    .topbar-right {
+        gap: 0.5rem;
+    }
+
+    .topbar-action-btn, .topbar-menu-btn {
+        width: 34px;
+        height: 34px;
+    }
+
+    .admin-topbar {
+        padding: 0 0.75rem;
+    }
+
+    .admin-content-area {
+        padding: 0.75rem;
+    }
+
+    .topbar-left {
+        gap: 0.5rem;
+    }
+}

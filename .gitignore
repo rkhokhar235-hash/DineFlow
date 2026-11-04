@@ -1,0 +1,15 @@
+# Visual Studio
+.vs/
+**/.vs/
+**/bin/
+**/obj/
+*.user
+*.suo
+
+# NuGet Packages
+packages/
+**/packages/
+
+# Local Database
+*.mdf
+*.ldf

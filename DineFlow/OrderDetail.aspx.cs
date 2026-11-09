@@ -55,9 +55,10 @@ namespace DineFlow
                 "i.ItemName, i.Quantity, i.UnitPrice, i.LineTotal " +
                 "FROM Orders o " +
                 "INNER JOIN OrderItems i ON o.OrderID = i.OrderID " +
-                "WHERE o.OrderNumber = @OrderNumber AND o.MobileNumber = @MobileNumber " +
+                "WHERE o.OrderNumber = @OrderNumber AND o.CustomerName = @CustomerName AND o.MobileNumber = @MobileNumber " +
                 "ORDER BY i.OrderItemID", con);
             cmd.Parameters.AddWithValue("@OrderNumber", orderNumber);
+            cmd.Parameters.AddWithValue("@CustomerName", Session["DineFlow.CustomerName"].ToString());
             cmd.Parameters.AddWithValue("@MobileNumber", Session["DineFlow.MobileNumber"].ToString());
 
             da = new SqlDataAdapter(cmd);

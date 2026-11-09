@@ -31,6 +31,10 @@
                                     Text="View"
                                     CssClass="btn btn-sm btn-df-gold"
                                     NavigateUrl='<%# "OrderDetail.aspx?order=" + Server.UrlEncode(Eval("OrderNumber").ToString()) %>' />
+                                <asp:HyperLink ID="lnkDownloadBill" runat="server"
+                                    Text="Download PDF"
+                                    CssClass="btn btn-sm btn-outline-dark"
+                                    NavigateUrl='<%# "OrderBill.aspx?order=" + Server.UrlEncode(Eval("OrderNumber").ToString()) %>' />
                             </ItemTemplate>
                         </asp:TemplateField>
                     </Columns>

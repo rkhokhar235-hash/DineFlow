@@ -84,9 +84,10 @@ namespace DineFlow
                 cmd = new SqlCommand(
                     "SELECT c.Cart_Prod_Id, c.Quantity, p.ItemName, p.Price " +
                     "FROM cart_tbl c INNER JOIN MenuItems p ON c.Cart_Prod_Id = p.MenuItemId " +
-                    "WHERE c.Cart_Session_Id = @CartSessionId AND c.Cart_Table_Number = @TableNumber",
+                    "WHERE c.Cart_Customer_Name = @CustomerName AND c.Cart_User_Id = @MobileNumber AND c.Cart_Table_Number = @TableNumber",
                     con, transaction);
-                cmd.Parameters.AddWithValue("@CartSessionId", GetCartSessionId());
+                cmd.Parameters.AddWithValue("@CustomerName", Session["DineFlow.CustomerName"].ToString());
+                cmd.Parameters.AddWithValue("@MobileNumber", Session["DineFlow.MobileNumber"].ToString());
                 cmd.Parameters.AddWithValue("@TableNumber", Convert.ToInt32(Session["DineFlow.TableNumber"]));
 
                 da = new SqlDataAdapter(cmd);
@@ -138,9 +139,10 @@ namespace DineFlow
                 }
 
                 cmd = new SqlCommand(
-                    "DELETE FROM cart_tbl WHERE Cart_Session_Id = @CartSessionId AND Cart_Table_Number = @TableNumber",
+                    "DELETE FROM cart_tbl WHERE Cart_Customer_Name = @CustomerName AND Cart_User_Id = @MobileNumber AND Cart_Table_Number = @TableNumber",
                     con, transaction);
-                cmd.Parameters.AddWithValue("@CartSessionId", GetCartSessionId());
+                cmd.Parameters.AddWithValue("@CustomerName", Session["DineFlow.CustomerName"].ToString());
+                cmd.Parameters.AddWithValue("@MobileNumber", Session["DineFlow.MobileNumber"].ToString());
                 cmd.Parameters.AddWithValue("@TableNumber", Convert.ToInt32(Session["DineFlow.TableNumber"]));
                 cmd.ExecuteNonQuery();
 
@@ -169,8 +171,9 @@ namespace DineFlow
                 "p.ImagePath AS Prod_Img, p.ItemName AS Prod_Name, p.Price AS Prod_Price, " +
                 "(c.Quantity * p.Price) AS Total " +
                 "FROM cart_tbl c INNER JOIN MenuItems p ON c.Cart_Prod_Id = p.MenuItemId " +
-                "WHERE c.Cart_Session_Id = @CartSessionId AND c.Cart_Table_Number = @TableNumber", con);
-            cmd.Parameters.AddWithValue("@CartSessionId", GetCartSessionId());
+                "WHERE c.Cart_Customer_Name = @CustomerName AND c.Cart_User_Id = @MobileNumber AND c.Cart_Table_Number = @TableNumber", con);
+            cmd.Parameters.AddWithValue("@CustomerName", Session["DineFlow.CustomerName"].ToString());
+            cmd.Parameters.AddWithValue("@MobileNumber", Session["DineFlow.MobileNumber"].ToString());
             cmd.Parameters.AddWithValue("@TableNumber", Convert.ToInt32(Session["DineFlow.TableNumber"]));
 
             da = new SqlDataAdapter(cmd);
@@ -212,10 +215,11 @@ namespace DineFlow
             cmd = new SqlCommand(
                 "UPDATE cart_tbl SET Quantity = @Quantity, Total = @Quantity * " +
                 "(SELECT Price FROM MenuItems WHERE MenuItemId = cart_tbl.Cart_Prod_Id) " +
-                "WHERE Cart_Id = @CartId AND Cart_Session_Id = @CartSessionId AND Cart_Table_Number = @TableNumber", con);
+                "WHERE Cart_Id = @CartId AND Cart_Customer_Name = @CustomerName AND Cart_User_Id = @MobileNumber AND Cart_Table_Number = @TableNumber", con);
             cmd.Parameters.AddWithValue("@Quantity", qty);
             cmd.Parameters.AddWithValue("@CartId", cartId);
-            cmd.Parameters.AddWithValue("@CartSessionId", GetCartSessionId());
+            cmd.Parameters.AddWithValue("@CustomerName", Session["DineFlow.CustomerName"].ToString());
+            cmd.Parameters.AddWithValue("@MobileNumber", Session["DineFlow.MobileNumber"].ToString());
             cmd.Parameters.AddWithValue("@TableNumber", Convert.ToInt32(Session["DineFlow.TableNumber"]));
             cmd.ExecuteNonQuery();
             con.Close();
@@ -230,9 +234,10 @@ namespace DineFlow
 
             getcon();
             cmd = new SqlCommand(
-                "DELETE FROM cart_tbl WHERE Cart_Id = @CartId AND Cart_Session_Id = @CartSessionId AND Cart_Table_Number = @TableNumber", con);
+                "DELETE FROM cart_tbl WHERE Cart_Id = @CartId AND Cart_Customer_Name = @CustomerName AND Cart_User_Id = @MobileNumber AND Cart_Table_Number = @TableNumber", con);
             cmd.Parameters.AddWithValue("@CartId", cartId);
-            cmd.Parameters.AddWithValue("@CartSessionId", GetCartSessionId());
+            cmd.Parameters.AddWithValue("@CustomerName", Session["DineFlow.CustomerName"].ToString());
+            cmd.Parameters.AddWithValue("@MobileNumber", Session["DineFlow.MobileNumber"].ToString());
             cmd.Parameters.AddWithValue("@TableNumber", Convert.ToInt32(Session["DineFlow.TableNumber"]));
             cmd.ExecuteNonQuery();
             con.Close();

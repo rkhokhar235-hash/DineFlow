@@ -25,6 +25,14 @@ namespace DineFlow
             if (!IsPostBack)
             {
                 LoadTable();
+
+                if (Request.QueryString["new"] == "1")
+                {
+                    Session.Remove("DineFlow.CustomerName");
+                    Session.Remove("DineFlow.MobileNumber");
+                    Session.Remove("DineFlow.CartSessionId");
+                    Session.Remove("DineFlow.LastOrderNumber");
+                }
             }
 
             LoadCustomerDetails();
@@ -129,8 +137,9 @@ namespace DineFlow
                 Session["DineFlow.MobileNumber"] != null)
             {
                 getCon();
-                cmd = new SqlCommand("select ISNULL(SUM(c.Quantity),0) from cart_tbl c inner join MenuItems p on c.Cart_Prod_Id=p.MenuItemId where c.Cart_Session_Id=@CartSessionId and c.Cart_Table_Number=@TableNumber and c.Quantity > 0", con);
-                cmd.Parameters.AddWithValue("@CartSessionId", GetCartSessionId());
+                cmd = new SqlCommand("select ISNULL(SUM(c.Quantity),0) from cart_tbl c inner join MenuItems p on c.Cart_Prod_Id=p.MenuItemId where c.Cart_Customer_Name=@CustomerName and c.Cart_User_Id=@MobileNumber and c.Cart_Table_Number=@TableNumber and c.Quantity > 0", con);
+                cmd.Parameters.AddWithValue("@CustomerName", Session["DineFlow.CustomerName"].ToString());
+                cmd.Parameters.AddWithValue("@MobileNumber", Session["DineFlow.MobileNumber"].ToString());
                 cmd.Parameters.AddWithValue("@TableNumber", Convert.ToInt32(Session["DineFlow.TableNumber"]));
                 cartCount = Convert.ToInt32(cmd.ExecuteScalar());
                 con.Close();
@@ -166,8 +175,9 @@ namespace DineFlow
             if (ds.Tables[0].Rows.Count > 0)
             {
                 decimal price = Convert.ToDecimal(ds.Tables[0].Rows[0]["Price"]);
-                cmd = new SqlCommand("select Cart_Id,Quantity from cart_tbl where Cart_Session_Id=@CartSessionId and Cart_Table_Number=@TableNumber and Cart_Prod_Id=@MenuItemId", con);
-                cmd.Parameters.AddWithValue("@CartSessionId", GetCartSessionId());
+                cmd = new SqlCommand("select Cart_Id,Quantity from cart_tbl where Cart_Customer_Name=@CustomerName and Cart_User_Id=@MobileNumber and Cart_Table_Number=@TableNumber and Cart_Prod_Id=@MenuItemId", con);
+                cmd.Parameters.AddWithValue("@CustomerName", Session["DineFlow.CustomerName"].ToString());
+                cmd.Parameters.AddWithValue("@MobileNumber", Session["DineFlow.MobileNumber"].ToString());
                 cmd.Parameters.AddWithValue("@TableNumber", Convert.ToInt32(Session["DineFlow.TableNumber"]));
                 cmd.Parameters.AddWithValue("@MenuItemId", menuItemId);
                 da = new SqlDataAdapter(cmd);
@@ -178,11 +188,13 @@ namespace DineFlow
                 {
                     int quantity = Convert.ToInt32(ds.Tables[0].Rows[0]["Quantity"]) + 1;
                     int cartId = Convert.ToInt32(ds.Tables[0].Rows[0]["Cart_Id"]);
-                    cmd = new SqlCommand("UPDATE cart_tbl SET Quantity=@Quantity, Total=@Total WHERE Cart_Id=@CartId AND Cart_Session_Id=@CartSessionId", con);
+                    cmd = new SqlCommand("UPDATE cart_tbl SET Quantity=@Quantity, Total=@Total WHERE Cart_Id=@CartId AND Cart_Customer_Name=@CustomerName AND Cart_User_Id=@MobileNumber AND Cart_Table_Number=@TableNumber", con);
                     cmd.Parameters.AddWithValue("@Quantity", quantity);
                     cmd.Parameters.AddWithValue("@Total", quantity * price);
                     cmd.Parameters.AddWithValue("@CartId", cartId);
-                    cmd.Parameters.AddWithValue("@CartSessionId", GetCartSessionId());
+                    cmd.Parameters.AddWithValue("@CustomerName", Session["DineFlow.CustomerName"].ToString());
+                    cmd.Parameters.AddWithValue("@MobileNumber", Session["DineFlow.MobileNumber"].ToString());
+                    cmd.Parameters.AddWithValue("@TableNumber", Convert.ToInt32(Session["DineFlow.TableNumber"]));
                     cmd.ExecuteNonQuery();
                 }
                 else

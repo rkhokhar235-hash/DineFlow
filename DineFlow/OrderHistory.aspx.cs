@@ -37,7 +37,8 @@ namespace DineFlow
 
             cmd = new SqlCommand(
                 "SELECT OrderNumber, TableNumber, TotalAmount AS Total, Status AS OrderStatus, CreatedAt AS OrderedDate " +
-                "FROM Orders WHERE MobileNumber = @MobileNumber ORDER BY OrderID DESC", con);
+                "FROM Orders WHERE CustomerName = @CustomerName AND MobileNumber = @MobileNumber ORDER BY OrderID DESC", con);
+            cmd.Parameters.AddWithValue("@CustomerName", Session["DineFlow.CustomerName"].ToString());
             cmd.Parameters.AddWithValue("@MobileNumber", Session["DineFlow.MobileNumber"].ToString());
 
             da = new SqlDataAdapter(cmd);

@@ -144,6 +144,7 @@
     <Content Include="Show_Cart.aspx" />
     <Content Include="OrderHistory.aspx" />
     <Content Include="OrderDetail.aspx" />
+    <Content Include="OrderBill.aspx" />
     <Content Include="Assets\CSS\order.css" />
     <Content Include="Visitor\About.aspx" />
     <Content Include="Visitor\Blog.aspx" />
@@ -260,6 +261,12 @@
     </Compile>
     <Compile Include="OrderDetail.aspx.designer.cs">
       <DependentUpon>OrderDetail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="OrderBill.aspx.cs">
+      <DependentUpon>OrderBill.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="OrderBill.aspx.designer.cs">
+      <DependentUpon>OrderBill.aspx</DependentUpon>
     </Compile>
     <Compile Include="Show_Cart.aspx.designer.cs">
       <DependentUpon>Show_Cart.aspx</DependentUpon>

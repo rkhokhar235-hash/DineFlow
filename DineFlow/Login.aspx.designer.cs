@@ -10,11 +10,11 @@ namespace DineFlow
         protected global::System.Web.UI.WebControls.ValidationSummary validationSummary;
         protected global::System.Web.UI.WebControls.Label lblMessage;
         protected global::System.Web.UI.WebControls.Label lblUsername;
-        protected global::System.Web.UI.WebControls.TextBox txtUsername;
+        protected global::System.Web.UI.WebControls.TextBox txteml;
         protected global::System.Web.UI.WebControls.RequiredFieldValidator usernameValidator;
         protected global::System.Web.UI.WebControls.Label lblPassword;
-        protected global::System.Web.UI.WebControls.TextBox txtPassword;
+        protected global::System.Web.UI.WebControls.TextBox txtpass;
         protected global::System.Web.UI.WebControls.RequiredFieldValidator passwordValidator;
-        protected global::System.Web.UI.WebControls.Button btnLogin;
+        protected global::System.Web.UI.WebControls.Button btnlogin;
     }
 }

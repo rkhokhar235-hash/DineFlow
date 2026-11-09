@@ -1,4 +1,4 @@
-<%@ Page Language="C#" AutoEventWireup="true" UnobtrusiveValidationMode="None" CodeBehind="Login.aspx.cs" Inherits="DineFlow.Login" %>
+<%@ Page Language="C#" AutoEventWireup="true" UnobtrusiveValidationMode="None" CodeFile="Login.aspx.cs" Inherits="DineFlow.Login" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -49,27 +49,27 @@
                     <asp:Label ID="lblMessage" runat="server" CssClass="message message-error" Visible="false" />
 
                     <div class="field-group">
-                        <asp:Label ID="lblUsername" runat="server" AssociatedControlID="txtUsername">Username</asp:Label>
+                        <asp:Label ID="lblUsername" runat="server" AssociatedControlID="txteml">Email</asp:Label>
                         <div class="input-wrap">
                             <span class="input-icon" aria-hidden="true">&#9679;</span>
-                            <asp:TextBox ID="txtUsername" runat="server" ClientIDMode="Static" CssClass="form-input" MaxLength="50" autocomplete="username" />
+                            <asp:TextBox ID="txteml" runat="server" ClientIDMode="Static" CssClass="form-input" MaxLength="100" TextMode="Email" autocomplete="username" />
                         </div>
-                        <asp:RequiredFieldValidator ID="usernameValidator" runat="server" ControlToValidate="txtUsername" Display="Dynamic" CssClass="field-error" ErrorMessage="Enter your username." />
+                        <asp:RequiredFieldValidator ID="usernameValidator" runat="server" ControlToValidate="txteml" Display="Dynamic" CssClass="field-error" ErrorMessage="Enter your email." />
                     </div>
 
                     <div class="field-group">
                         <div class="field-label-row">
-                            <asp:Label ID="lblPassword" runat="server" AssociatedControlID="txtPassword">Password</asp:Label>
+                            <asp:Label ID="lblPassword" runat="server" AssociatedControlID="txtpass">Password</asp:Label>
                         </div>
                         <div class="input-wrap">
                             <span class="input-icon" aria-hidden="true">&#9679;</span>
-                            <asp:TextBox ID="txtPassword" runat="server" ClientIDMode="Static" CssClass="form-input password-input" TextMode="Password" MaxLength="100" autocomplete="current-password" />
-                            <button type="button" class="toggle-password" id="togglePassword" aria-label="Show password" aria-controls="txtPassword">Show</button>
+                            <asp:TextBox ID="txtpass" runat="server" ClientIDMode="Static" CssClass="form-input password-input" TextMode="Password" MaxLength="100" autocomplete="current-password" />
+                            <button type="button" class="toggle-password" id="togglePassword" aria-label="Show password" aria-controls="txtpass">Show</button>
                         </div>
-                        <asp:RequiredFieldValidator ID="passwordValidator" runat="server" ControlToValidate="txtPassword" Display="Dynamic" CssClass="field-error" ErrorMessage="Enter your password." />
+                        <asp:RequiredFieldValidator ID="passwordValidator" runat="server" ControlToValidate="txtpass" Display="Dynamic" CssClass="field-error" ErrorMessage="Enter your password." />
                     </div>
 
-                    <asp:Button ID="btnLogin" runat="server" ClientIDMode="Static" Text="Sign in" CssClass="login-button" OnClick="btnLogin_Click" />
+                    <asp:Button ID="btnlogin" runat="server" ClientIDMode="Static" Text="Sign in" CssClass="login-button" OnClick="btnlogin_Click" />
                     <p class="security-note"><span aria-hidden="true">&#10003;</span> Private access for DineFlow staff</p>
                 </div>
                 <footer class="login-footer">© <%: DateTime.Now.Year %> DineFlow · Crafted for better service</footer>

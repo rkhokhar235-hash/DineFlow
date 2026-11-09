@@ -14,6 +14,8 @@ namespace DineFlow
         protected global::System.Web.UI.WebControls.Panel pnlHeaderCustomerSummary;
         protected global::System.Web.UI.WebControls.Literal litHeaderCustomerName;
         protected global::System.Web.UI.WebControls.Literal litHeaderCustomerMobile;
+        protected global::System.Web.UI.WebControls.Panel pnlCartToast;
+        protected global::System.Web.UI.WebControls.Literal litCartToast;
         protected global::System.Web.UI.WebControls.Panel pnlCustomerSummary;
         protected global::System.Web.UI.WebControls.Literal litCustomerName;
         protected global::System.Web.UI.WebControls.Literal litCustomerMobile;

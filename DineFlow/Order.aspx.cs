@@ -16,7 +16,6 @@ namespace DineFlow
         SqlCommand cmd;
         SqlDataAdapter da;
         DataSet ds;
-        string fnm, nm;
         string s = ConfigurationManager.ConnectionStrings["dbcon"].ConnectionString;
 
         protected void Page_Load(object sender, EventArgs e)
@@ -109,6 +108,17 @@ namespace DineFlow
                 litHeaderCustomerName.Text = customerName;
                 litHeaderCustomerMobile.Text = mobileNumber;
             }
+
+        }
+
+        private string GetCartSessionId()
+        {
+            if (Session["DineFlow.CartSessionId"] == null)
+            {
+                Session["DineFlow.CartSessionId"] = Guid.NewGuid().ToString();
+            }
+
+            return Session["DineFlow.CartSessionId"].ToString();
         }
 
         private void LoadCartCount()
@@ -119,7 +129,9 @@ namespace DineFlow
                 Session["DineFlow.MobileNumber"] != null)
             {
                 getCon();
-                cmd = new SqlCommand("select ISNULL(SUM(c.Quantity),0) from cart_tbl c inner join MenuItems p on c.Cart_Prod_Id=p.MenuItemId where c.Cart_User_Id='" + Session["DineFlow.MobileNumber"] + "' and c.Cart_Table_Number='" + Session["DineFlow.TableNumber"] + "' and c.Quantity > 0", con);
+                cmd = new SqlCommand("select ISNULL(SUM(c.Quantity),0) from cart_tbl c inner join MenuItems p on c.Cart_Prod_Id=p.MenuItemId where c.Cart_Session_Id=@CartSessionId and c.Cart_Table_Number=@TableNumber and c.Quantity > 0", con);
+                cmd.Parameters.AddWithValue("@CartSessionId", GetCartSessionId());
+                cmd.Parameters.AddWithValue("@TableNumber", Convert.ToInt32(Session["DineFlow.TableNumber"]));
                 cartCount = Convert.ToInt32(cmd.ExecuteScalar());
                 con.Close();
             }
@@ -154,7 +166,10 @@ namespace DineFlow
             if (ds.Tables[0].Rows.Count > 0)
             {
                 decimal price = Convert.ToDecimal(ds.Tables[0].Rows[0]["Price"]);
-                cmd = new SqlCommand("select Cart_Id,Quantity from cart_tbl where Cart_User_Id='" + Session["DineFlow.MobileNumber"] + "' and Cart_Table_Number='" + Session["DineFlow.TableNumber"] + "' and Cart_Prod_Id='" + menuItemId + "'", con);
+                cmd = new SqlCommand("select Cart_Id,Quantity from cart_tbl where Cart_Session_Id=@CartSessionId and Cart_Table_Number=@TableNumber and Cart_Prod_Id=@MenuItemId", con);
+                cmd.Parameters.AddWithValue("@CartSessionId", GetCartSessionId());
+                cmd.Parameters.AddWithValue("@TableNumber", Convert.ToInt32(Session["DineFlow.TableNumber"]));
+                cmd.Parameters.AddWithValue("@MenuItemId", menuItemId);
                 da = new SqlDataAdapter(cmd);
                 ds = new DataSet();
                 da.Fill(ds);
@@ -163,12 +178,22 @@ namespace DineFlow
                 {
                     int quantity = Convert.ToInt32(ds.Tables[0].Rows[0]["Quantity"]) + 1;
                     int cartId = Convert.ToInt32(ds.Tables[0].Rows[0]["Cart_Id"]);
-                    cmd = new SqlCommand("UPDATE cart_tbl SET Quantity='" + quantity + "',Total='" + (quantity * price) + "' WHERE Cart_Id='" + cartId + "' AND Cart_User_Id='" + Session["DineFlow.MobileNumber"] + "'", con);
+                    cmd = new SqlCommand("UPDATE cart_tbl SET Quantity=@Quantity, Total=@Total WHERE Cart_Id=@CartId AND Cart_Session_Id=@CartSessionId", con);
+                    cmd.Parameters.AddWithValue("@Quantity", quantity);
+                    cmd.Parameters.AddWithValue("@Total", quantity * price);
+                    cmd.Parameters.AddWithValue("@CartId", cartId);
+                    cmd.Parameters.AddWithValue("@CartSessionId", GetCartSessionId());
                     cmd.ExecuteNonQuery();
                 }
                 else
                 {
-                    cmd = new SqlCommand("insert into cart_tbl(Cart_User_Id,Cart_Customer_Name,Cart_Table_Number,Cart_Prod_Id,Quantity,Total,Added_Date) values('" + Session["DineFlow.MobileNumber"] + "','" + Session["DineFlow.CustomerName"] + "','" + Session["DineFlow.TableNumber"] + "','" + menuItemId + "','1','" + price + "',GETDATE())", con);
+                    cmd = new SqlCommand("insert into cart_tbl(Cart_User_Id,Cart_Session_Id,Cart_Customer_Name,Cart_Table_Number,Cart_Prod_Id,Quantity,Total,Added_Date) values(@MobileNumber,@CartSessionId,@CustomerName,@TableNumber,@MenuItemId,1,@Total,GETDATE())", con);
+                    cmd.Parameters.AddWithValue("@MobileNumber", Session["DineFlow.MobileNumber"].ToString());
+                    cmd.Parameters.AddWithValue("@CartSessionId", GetCartSessionId());
+                    cmd.Parameters.AddWithValue("@CustomerName", Session["DineFlow.CustomerName"].ToString());
+                    cmd.Parameters.AddWithValue("@TableNumber", Convert.ToInt32(Session["DineFlow.TableNumber"]));
+                    cmd.Parameters.AddWithValue("@MenuItemId", menuItemId);
+                    cmd.Parameters.AddWithValue("@Total", price);
                     cmd.ExecuteNonQuery();
                 }
             }

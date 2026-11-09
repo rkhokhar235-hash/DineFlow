@@ -1,8 +1,8 @@
 (function () {
-    var password = document.getElementById("txtPassword");
+    var password = document.getElementById("txtpass");
     var toggle = document.getElementById("togglePassword");
     var form = document.getElementById("loginForm");
-    var loginButton = document.getElementById("btnLogin");
+    var loginButton = document.getElementById("btnlogin");
 
     if (password && toggle) {
         toggle.addEventListener("click", function () {

@@ -14,13 +14,52 @@
 </head>
 <body>
     <form id="kitchenForm" runat="server">
-        <header class="kitchen-header">
-            <a class="kitchen-brand" href="<%: ResolveUrl("~/Kitchen/Dashboard.aspx") %>"><span class="brand-mark">DF</span><span><strong>DineFlow</strong><small>Kitchen workspace</small></span></a>
-            <div class="kitchen-user"><span>Signed in as <strong><%= Server.HtmlEncode((Session["DineFlow.Username"] as string) ?? "Kitchen") %></strong></span><asp:LinkButton ID="lbLogout" runat="server" CssClass="logout-button" OnClick="Logout_Click" CausesValidation="false">Log out</asp:LinkButton></div>
-        </header>
-        <main class="kitchen-content">
+        <div class="kitchen-layout">
+            <aside class="kitchen-sidebar">
+                <a class="kitchen-brand" href="<%: ResolveUrl("~/Kitchen/Dashboard.aspx") %>">
+                    <span class="brand-mark">DF</span>
+                    <span><strong>DineFlow</strong><small>Kitchen workspace</small></span>
+                </a>
+
+                <div class="sidebar-section-label">Workspace</div>
+                <nav class="kitchen-nav" aria-label="Kitchen navigation">
+                    <a class="kitchen-nav-link <%= Request.Url.AbsolutePath.EndsWith("Dashboard.aspx", StringComparison.OrdinalIgnoreCase) ? "active" : "" %>" href="<%: ResolveUrl("~/Kitchen/Dashboard.aspx") %>">
+                        <span class="nav-icon">⌂</span><span>Dashboard</span>
+                    </a>
+                    <a class="kitchen-nav-link <%= Request.Url.AbsolutePath.EndsWith("OrderQueue.aspx", StringComparison.OrdinalIgnoreCase) ? "active" : "" %>" href="<%: ResolveUrl("~/Kitchen/OrderQueue.aspx") %>">
+                        <span class="nav-icon">▣</span><span>Order queue</span><span class="nav-count">08</span>
+                    </a>
+                    <a class="kitchen-nav-link <%= Request.Url.AbsolutePath.EndsWith("Preparing.aspx", StringComparison.OrdinalIgnoreCase) ? "active" : "" %>" href="<%: ResolveUrl("~/Kitchen/Preparing.aspx") %>">
+                        <span class="nav-icon">◷</span><span>Preparing</span>
+                    </a>
+                    <a class="kitchen-nav-link <%= Request.Url.AbsolutePath.EndsWith("Completed.aspx", StringComparison.OrdinalIgnoreCase) ? "active" : "" %>" href="<%: ResolveUrl("~/Kitchen/Completed.aspx") %>">
+                        <span class="nav-icon">✓</span><span>Completed</span>
+                    </a>
+                </nav>
+
+                <div class="sidebar-section-label">Account</div>
+                <nav class="kitchen-nav" aria-label="Account navigation">
+                    <a class="kitchen-nav-link <%= Request.Url.AbsolutePath.EndsWith("Settings.aspx", StringComparison.OrdinalIgnoreCase) ? "active" : "" %>" href="<%: ResolveUrl("~/Kitchen/Settings.aspx") %>">
+                        <span class="nav-icon">⚙</span><span>Settings</span>
+                    </a>
+                </nav>
+
+                <div class="sidebar-footer">
+                    <div class="sidebar-user">
+                        <span class="user-avatar">K</span>
+                        <span class="user-copy">
+                            <strong><%= Server.HtmlEncode((Session["DineFlow.Username"] as string) ?? "Kitchen") %></strong>
+                            <small>Kitchen staff</small>
+                        </span>
+                    </div>
+                    <asp:LinkButton ID="lbLogout" runat="server" CssClass="logout-button" OnClick="Logout_Click" CausesValidation="false">Log out</asp:LinkButton>
+                </div>
+            </aside>
+
+            <main class="kitchen-content">
             <asp:ContentPlaceHolder ID="MainContent" runat="server" />
-        </main>
+            </main>
+        </div>
     </form>
 </body>
 </html>

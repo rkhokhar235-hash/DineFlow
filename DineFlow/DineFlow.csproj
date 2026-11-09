@@ -83,6 +83,7 @@
     <Content Include="CSS\Login.css" />
     <Content Include="Database\MenuManagement.sql" />
     <Content Include="Database\Cart.sql" />
+    <Content Include="Database\Orders.sql" />
     <Content Include="App_Data\DineFlow.mdf" />
     <Content Include="App_Data\DineFlow_log.ldf">
       <DependentUpon>DineFlow.mdf</DependentUpon>
@@ -133,10 +134,16 @@
     <Content Include="JS\Login.js" />
     <Content Include="Kitchen\CSS\kitchen.css" />
     <Content Include="Kitchen\Dashboard.aspx" />
+    <Content Include="Kitchen\OrderQueue.aspx" />
+    <Content Include="Kitchen\Preparing.aspx" />
+    <Content Include="Kitchen\Completed.aspx" />
+    <Content Include="Kitchen\Settings.aspx" />
     <Content Include="Admin\prodimg\.gitkeep" />
     <Content Include="Login.aspx" />
     <Content Include="Order.aspx" />
     <Content Include="Show_Cart.aspx" />
+    <Content Include="OrderHistory.aspx" />
+    <Content Include="OrderDetail.aspx" />
     <Content Include="Assets\CSS\order.css" />
     <Content Include="Visitor\About.aspx" />
     <Content Include="Visitor\Blog.aspx" />
@@ -187,6 +194,34 @@
       <DependentUpon>Dashboard.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
+    <Compile Include="Kitchen\OrderQueue.aspx.cs">
+      <DependentUpon>OrderQueue.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Kitchen\OrderQueue.aspx.designer.cs">
+      <DependentUpon>OrderQueue.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Kitchen\Preparing.aspx.cs">
+      <DependentUpon>Preparing.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Kitchen\Preparing.aspx.designer.cs">
+      <DependentUpon>Preparing.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Kitchen\Completed.aspx.cs">
+      <DependentUpon>Completed.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Kitchen\Completed.aspx.designer.cs">
+      <DependentUpon>Completed.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Kitchen\Settings.aspx.cs">
+      <DependentUpon>Settings.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Kitchen\Settings.aspx.designer.cs">
+      <DependentUpon>Settings.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Kitchen\Dashboard.aspx.designer.cs">
       <DependentUpon>Dashboard.aspx</DependentUpon>
     </Compile>
@@ -211,6 +246,20 @@
     <Compile Include="Show_Cart.aspx.cs">
       <DependentUpon>Show_Cart.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="OrderHistory.aspx.cs">
+      <DependentUpon>OrderHistory.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="OrderHistory.aspx.designer.cs">
+      <DependentUpon>OrderHistory.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="OrderDetail.aspx.cs">
+      <DependentUpon>OrderDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="OrderDetail.aspx.designer.cs">
+      <DependentUpon>OrderDetail.aspx</DependentUpon>
     </Compile>
     <Compile Include="Show_Cart.aspx.designer.cs">
       <DependentUpon>Show_Cart.aspx</DependentUpon>

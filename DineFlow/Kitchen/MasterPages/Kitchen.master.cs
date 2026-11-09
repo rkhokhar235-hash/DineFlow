@@ -13,6 +13,16 @@ namespace DineFlow.Kitchen.MasterPages
             Context.ApplicationInstance.CompleteRequest();
         }
 
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            if (Session["DineFlow.Role"] == null ||
+                Session["DineFlow.Role"].ToString() != "Kitchen")
+            {
+                Response.Redirect(ResolveUrl("~/Login.aspx"), false);
+                Context.ApplicationInstance.CompleteRequest();
+            }
+        }
+
         public string PageTitle
         {
             set { litPageTitle.Text = value; }

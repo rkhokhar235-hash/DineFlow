@@ -13,7 +13,7 @@ namespace DineFlow.Admin
         SqlCommand cmd;
         SqlDataAdapter da;
         DataSet ds;
-        string fnm, nm;
+        string fnm;
         string s = ConfigurationManager.ConnectionStrings["dbcon"].ConnectionString;
 
         void getCon()

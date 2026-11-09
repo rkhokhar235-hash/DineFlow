@@ -9,6 +9,7 @@ namespace DineFlow
         protected global::System.Web.UI.WebControls.GridView GridView1;
         protected global::System.Web.UI.WebControls.Label lblGrandTotal;
         protected global::System.Web.UI.WebControls.Button btnBackToMenu;
+        protected global::System.Web.UI.WebControls.Button btnOrderHistory;
         protected global::System.Web.UI.WebControls.Button btnCheckout;
         protected global::System.Web.UI.WebControls.Label lblCheckoutMessage;
     }

@@ -41,6 +41,7 @@
                 <asp:Label ID="lblGrandTotal" runat="server" CssClass="cart-grand-total" />
                 <div class="cart-actions">
                     <asp:Button ID="btnBackToMenu" runat="server" Text="Back to Menu" CssClass="btn btn-outline-dark" CausesValidation="false" OnClick="btnBackToMenu_Click" />
+                    <asp:Button ID="btnOrderHistory" runat="server" Text="Order History" CssClass="btn btn-outline-dark" CausesValidation="false" OnClick="btnOrderHistory_Click" />
                     <asp:Button ID="btnCheckout" runat="server" Text="Checkout" CssClass="btn btn-df-gold" CausesValidation="false" OnClick="btnCheckout_Click" />
                 </div>
                 <asp:Label ID="lblCheckoutMessage" runat="server" CssClass="form-message" />

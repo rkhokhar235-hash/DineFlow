@@ -25,16 +25,16 @@
                         <asp:BoundField DataField="Total" HeaderText="Total" DataFormatString="Rs. {0:N2}" />
                         <asp:BoundField DataField="OrderStatus" HeaderText="Status" />
                         <asp:BoundField DataField="OrderedDate" HeaderText="Date" DataFormatString="{0:dd-MMM-yyyy hh:mm tt}" />
-                        <asp:TemplateField HeaderText="View">
+                        <asp:TemplateField HeaderText="Actions">
                             <ItemTemplate>
                                 <asp:HyperLink ID="lnkViewOrder" runat="server"
                                     Text="View"
                                     CssClass="btn btn-sm btn-df-gold"
                                     NavigateUrl='<%# "OrderDetail.aspx?order=" + Server.UrlEncode(Eval("OrderNumber").ToString()) %>' />
                                 <asp:HyperLink ID="lnkDownloadBill" runat="server"
-                                    Text="Download PDF"
-                                    CssClass="btn btn-sm btn-outline-dark"
-                                    NavigateUrl='<%# "OrderBill.aspx?order=" + Server.UrlEncode(Eval("OrderNumber").ToString()) %>' />
+                                    Text="Download Bill"
+                                    CssClass="btn btn-sm btn-outline-dark ms-2"
+                                    NavigateUrl='<%# "OrderBill.ashx?order=" + Server.UrlEncode(Eval("OrderNumber").ToString()) %>' />
                             </ItemTemplate>
                         </asp:TemplateField>
                     </Columns>

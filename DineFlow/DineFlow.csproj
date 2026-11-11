@@ -15,7 +15,7 @@
     <AssemblyName>DineFlow</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
-    <Use64BitIISExpress />
+    <Use64BitIISExpress>true</Use64BitIISExpress>
     <IISExpressSSLPort>44324</IISExpressSSLPort>
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
@@ -60,6 +60,14 @@
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
+    <Reference Include="CrystalDecisions.CrystalReports.Engine">
+      <HintPath>$(MSBuildProgramFiles32)\SAP BusinessObjects\Crystal Reports for .NET Framework 4.0\Common\SAP BusinessObjects Enterprise XI 4.0\win64_x64\dotnet\CrystalDecisions.CrystalReports.Engine.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="CrystalDecisions.Shared">
+      <HintPath>$(MSBuildProgramFiles32)\SAP BusinessObjects\Crystal Reports for .NET Framework 4.0\Common\SAP BusinessObjects Enterprise XI 4.0\win64_x64\dotnet\CrystalDecisions.Shared.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
@@ -144,7 +152,8 @@
     <Content Include="Show_Cart.aspx" />
     <Content Include="OrderHistory.aspx" />
     <Content Include="OrderDetail.aspx" />
-    <Content Include="OrderBill.aspx" />
+    <Content Include="OrderBill.ashx" />
+    <Content Include="Reports\OrderBillData.xsd" />
     <Content Include="Assets\CSS\order.css" />
     <Content Include="Visitor\About.aspx" />
     <Content Include="Visitor\Blog.aspx" />
@@ -262,11 +271,8 @@
     <Compile Include="OrderDetail.aspx.designer.cs">
       <DependentUpon>OrderDetail.aspx</DependentUpon>
     </Compile>
-    <Compile Include="OrderBill.aspx.cs">
-      <DependentUpon>OrderBill.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="OrderBill.aspx.designer.cs">
-      <DependentUpon>OrderBill.aspx</DependentUpon>
+    <Compile Include="OrderBill.ashx.cs">
+      <DependentUpon>OrderBill.ashx</DependentUpon>
     </Compile>
     <Compile Include="Show_Cart.aspx.designer.cs">
       <DependentUpon>Show_Cart.aspx</DependentUpon>
